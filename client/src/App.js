@@ -5,7 +5,7 @@ function App() {
   const [data, setData] = useState([{}])
   
   useEffect(() =>  {
-    fetch("/members").then(
+    fetch("/top-coins").then(
       res => res.json()
     ).then(
       data => {
@@ -17,11 +17,12 @@ function App() {
 
   return (
     <div>
-      {(typeof data.members === 'undefined') ? (
+      <h1>Top Coins For Today</h1>
+      {(typeof data.coin_data === 'undefined') ? (
         <p>Loading...</p>
       ): (
-        data.members.map((member, i) => (
-          <p key={i}>{member} hello world!</p>
+        data.coin_data.map((coin, i) => (
+          <p key={i}>{coin.rank}. {coin.name}</p>
         ))
       )}
     </div>
