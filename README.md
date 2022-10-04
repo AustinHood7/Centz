@@ -32,5 +32,5 @@ This project is not under any liscence at the moment.
 
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
-[flask]: https://img.shields.io/badge/Flask-FFFFFF?style=for-the-badge&logo=flask&logoColor=000000
+[flask]: https://img.shields.io/badge/Flask-e0dede?style=for-the-badge&logo=flask&logoColor=000000
 [flask-url]: https://flask.palletsprojects.com/en/2.2.x/
