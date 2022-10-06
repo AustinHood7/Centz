@@ -27,6 +27,7 @@ This project is not under any liscence at the moment.
 - https://github.com/jfg357
 - https://developers.coinranking.com/api/documentation
 - https://developers.google.com/chart
+- https://medium.com/wealthy-bytes/the-easiest-way-to-use-a-python-virtual-environment-with-git-401e07c39cde
 
 <!-- Markdown Links and Images -->
 
