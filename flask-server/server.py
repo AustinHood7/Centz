@@ -1,7 +1,9 @@
 from flask import Flask
+from flask_cors import CORS, cross_origin
 from DataSource import DataSource
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../client/build', static_url_path='')
+CORS(app)
 
 # Members api route
 @app.route("/members")
@@ -9,6 +11,7 @@ def members():
     return {"members": ["Member1", "Member2", "Member3"]}
 
 @app.route("/top-coins")
+@cross_origin()
 def top_coins():
     data_source = DataSource()
 
