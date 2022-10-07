@@ -2,7 +2,7 @@ from flask import Flask
 from flask_cors import CORS, cross_origin
 from DataSource import DataSource
 
-app = Flask(__name__, static_folder='../client/build', static_url_path='')
+app = Flask(__name__)
 CORS(app)
 
 # Members api route
