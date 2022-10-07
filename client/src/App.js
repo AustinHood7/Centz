@@ -1,4 +1,5 @@
 import Navbar from './Components/Navbar'
+import Coins from './Components/Coins';
 import Home from './Pages/Home';
 import Contact from './Pages/Contact';
 import Details from './Pages/Details';
