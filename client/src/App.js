@@ -1,32 +1,25 @@
-import React, {useState, useEffect} from 'react'
+import Navbar from './Components/Navbar'
+import Home from './Pages/Home';
+import Contact from './Pages/Contact';
+import Details from './Pages/Details';
+import About from './Pages/About';
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-
-  const [data, setData] = useState([{}])
-  
-  useEffect(() =>  {
-    fetch("/top-coins").then(
-      res => res.json()
-    ).then(
-      data => {
-        setData(data)
-        console.log(data)
-      }
-    )
-  }, [])
-
   return (
-    <div>
-      <h1>Top Coins For Today</h1>
-      {(typeof data.coin_data === 'undefined') ? (
-        <p>Loading...</p>
-      ): (
-        data.coin_data.map((coin, i) => (
-          <p key={i}>{coin.rank}. {coin.name}</p>
-        ))
-      )}
-    </div>
-  )
+    <>
+      <Navbar />
+      <div className='container'>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/about' element={<About />}/>
+          <Route path='/details' element={<Details />}/>
+          <Route path='/contact' element={<Contact />}/>
+        </Routes>
+      </div>
+    </>
+
+  );
 }
 
-export default App
+export default App;
