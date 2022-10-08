@@ -10,13 +10,16 @@ body {
 }
 
 .nav {
-  background-color: #333;
-  color: white;
+  background-color: #111827;
+  color: #e0f2fe;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  padding: 0 1rem;
+  padding: 0 3rem;
+  height: 75px;
+  box-shadow: 0px 10px 10px #1f2937;
+  z-index: 10;
 }
 
 .site-title {
@@ -28,8 +31,17 @@ body {
   margin: 0;
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
+  font-size: larger;
+  margin-right: 3rem;
 }
+
+.nav ul li {
+  border: 0px;
+  border-radius: 1rem;
+  padding: .5rem;
+}
+
 
 .nav a {
   color: inherit;
@@ -42,10 +54,26 @@ body {
 }
 
 .nav li.active {
-  background-color: #555;
+  background-color: #1f2937;
 }
 
 .nav li:hover {
-  background-color: #777;
+  background-color: #374151;
 }
 
+div.top-coins {
+  background-color: #1f2937;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
+  color: #e0f2fe;
+  padding: 2rem;
+}
+
+h1.title {
+  grid-column: 2;
+}
+
+div.coins {
+  grid-column-start: 1;
+}
