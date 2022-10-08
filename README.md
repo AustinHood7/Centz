@@ -1,4 +1,4 @@
-# Coin_Graphs
+# Centz
 
 A react-flask based web application to provide a platform for providing real-time data on cryptocurrencey. This web app focuses on helping find the top current crypto and visualize trends using the Google Charts API
 
