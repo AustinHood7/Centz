@@ -1,3 +1,5 @@
+import Coins from "../Components/Coins"
+
 export default function Home() {
-  return <h1>Home</h1>
+  return <Coins />
 }
