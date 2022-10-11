@@ -21,6 +21,25 @@ def top_coins():
 
     return { "status": 200, "coin_data": return_json["data"]["coins"] }
 
+@app.route("/graphs")
+@cross_origin()
+def getGraphData():
+    data_source = DataSource()
+
+    # Get coin name/UUID
+    #getCoin = requests.json()
+    uuid = "Qwsogvtv82FCd" # Bitcoin
+
+    # Get coin data
+    return_json = data_source.get_data_for_coin(uuid)
+
+    # if no coins were found
+    if not return_json:
+        # tell the user that no results were found
+        return { "status": 404, "error": "No results found" }
+
+    return { "status": 200, "coin_data": return_json["data"] }
+
 @app.route('/')
 @cross_origin()
 def serve():

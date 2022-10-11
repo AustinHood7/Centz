@@ -1,3 +1,5 @@
+import Graphs from "../Components/Graphs"
+
 export default function Details() {
-    return <h1>Details</h1>
-  }
+  return <Graphs />
+}
