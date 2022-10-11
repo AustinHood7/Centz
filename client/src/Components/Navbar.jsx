@@ -1,10 +1,11 @@
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import logo from '../Assets/centz50x65.png'
+import SearchBar from './SearchBar';
 
 export default function Navbar() {
     return (
         <nav className="nav">
-            <div>Search Bar</div>
+            <SearchBar/>
             <Link to="/" className="site-title"><img src={logo} alt=''/></Link>
             <ul>
                 <CustomLink to="/about">About</CustomLink>

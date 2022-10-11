@@ -77,3 +77,36 @@ h1.title {
 div.coins {
   grid-column-start: 2;
 }
+
+.search-bar {
+  --size: 40px;
+  border: 2px solid white;
+  display: flex;
+  border-radius: 500px;
+  height: var(--size);
+  width: var(--size);
+  padding: 1px;
+  position: relative;
+
+  &-input {
+    flex-grow: 1;
+    font-size: medium;
+    padding: .5em;
+    border: 0;
+    background: transparent;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+  }
+
+  &-submit {
+    cursor: pointer;
+    border: 0;
+    background: opacify($color: #374151, $amount: .9);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    width: calc(var(--size) - 6px);
+    height: calc(var(--size) - 6px);
+  }
+}
