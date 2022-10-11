@@ -4,11 +4,10 @@ import logo from '../Assets/centz50x65.png'
 export default function Navbar() {
     return (
         <nav className="nav">
+            <div>Search Bar</div>
             <Link to="/" className="site-title"><img src={logo} alt=''/></Link>
             <ul>
                 <CustomLink to="/about">About</CustomLink>
-                <CustomLink to="/details">Details</CustomLink>
-                <CustomLink to="/contact">Contact</CustomLink>
             </ul>
         </nav>
     )
