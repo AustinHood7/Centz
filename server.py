@@ -12,14 +12,32 @@ def top_coins():
     data_source = DataSource()
 
     # Get top 50 coins
-    return_json = data_source.get_data_for_top_coins()
+    top_coins_data = data_source.get_data_for_top_coins()
 
     # if no coins were found
-    if not return_json:
+    if not top_coins_data:
         # tell the user that no results were found
         return { "status": 404, "error": "No results found" }
 
-    return { "status": 200, "coin_data": return_json["data"]["coins"] }
+    return { "status": 200, "coin_data": top_coins_data["data"]["coins"] }
+
+@app.route("/graphs")
+@cross_origin()
+def getGraphData():
+    data_source = DataSource()
+
+    # assuming that user requests bitcoin data for last 24 hrs (default)
+    uuid = "Qwsogvtv82FCd" # Bitcoin
+
+    # Get coin data for coin of uuid
+    price_history = data_source.get_data_for_coin(uuid)
+
+    # if no data is found
+    if not price_history:
+        # tell the user that no results were found
+        return { "status": 404, "error": "No results found" }
+
+    return { "status": 200, "coin_data": price_history["data"] }
 
 @app.route('/')
 @cross_origin()
