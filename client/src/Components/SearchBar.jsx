@@ -3,10 +3,10 @@ import { AiOutlineSearch } from 'react-icons/ai'
 
 function SearchBar() {
   return (
-    <div className='content'>
-        <div className='search-bar'>
-            <input type="text" className='search-bar-input' placeholder='Search...'/>
-            <button className='search-bar-submit'><AiOutlineSearch color='white' /></button>
+    <div class="content">
+        <div class="search">
+            <input type="text" class="search__input" aria-label="search" placeholder="Search..."/>
+            <button class="search__submit" aria-label="submit search"><AiOutlineSearch color='#e0f2fe'/></button>
         </div>
     </div>
   )
