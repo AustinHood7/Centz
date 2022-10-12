@@ -1,5 +1,6 @@
 {
   "files": {
+tix6
     "main.css": "/static/css/main.9f28e23f.css",
     "main.js": "/static/js/main.b1a17bfb.js",
     "index.html": "/index.html",
@@ -9,5 +10,6 @@
   "entrypoints": [
     "static/css/main.9f28e23f.css",
     "static/js/main.b1a17bfb.js"
+
   ]
 }
