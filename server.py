@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS, cross_origin
 from flask.helpers import send_from_directory
 from DataSource import DataSource
@@ -38,6 +38,12 @@ def getGraphData():
         return { "status": 404, "error": "No results found" }
 
     return { "status": 200, "coin_data": price_history["data"] }
+
+@app.route('/find-uuid', methods=['POST'])
+@cross_origin()
+def find_uuid():
+    body = request.get_json()
+    return { "data": request.json } 
 
 @app.route('/')
 @cross_origin()
