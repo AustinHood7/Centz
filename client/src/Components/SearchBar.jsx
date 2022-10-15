@@ -8,13 +8,14 @@ function SearchBar() {
   // send the search query to the backend
   const handleSubmit = async e => {
     e.preventDefault()
-    let res = await fetch('http://localhost:5000/find-uuid', {  
+    let res = await fetch('http://localhost:5000/search', {  
       method: 'POST',
       headers: {
         "content_type": "application/json",
      }, 
       body: JSON.stringify({ query: query }) 
-    }).then(resp => resp.json())
+    }).then(resp => console.log(resp.json()))
+    .then(data => console.log(data))
     .catch(err => console.log(err))
   }
 
