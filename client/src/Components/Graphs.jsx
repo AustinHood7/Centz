@@ -1,15 +1,6 @@
 import React from 'react'
 import { useEffect, useState} from 'react'
-import { Chart } from "react-google-charts";
-
-export const fake = [
-  ["TIMESTAMP", "PRICE"],
-  ["Mon", 20],
-  ["Tue", 31],
-  ["Wed", 50],
-  ["Thu", 50],
-  ["Fri", 15],
-];
+import { Chart } from 'react-google-charts'
 
 export const options = {
   title: "Coin Name",
@@ -49,25 +40,15 @@ function Graphs() {
       return shortDate;
     }
 
-    function convertTime(date) {
-      var conv = new Date(date * 1000); // convert to UTC from Epoch
-      conv.setSeconds(60); // specify value for seconds
-      var time = conv.toISOString().substring(11, 19);
-      //console.log(time);
-      return time;
-    }
-
     function convertEpoch(epoch) {
       return new Date(epoch * 1000)
     }
 
     const makeGraph = () => {
       for (let x = 0; x < data.coin_data.history.length; x++) {
-        
         graphData.push([convertEpoch(data.coin_data.history[x].timestamp), parseFloat(data.coin_data.history[x].price)]); 
-        console.log(graphData[x]);
+        //console.log(graphData[x]);
       }
-      //console.log(graphRows[0])
     };
   
     return (
