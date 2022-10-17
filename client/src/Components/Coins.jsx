@@ -23,9 +23,13 @@ function Coins() {
               {(typeof data.coin_data === 'undefined') ? (
                   <p>Loading...</p>
               ): (
-                  data.coin_data.map((coin, i) => (
-                  <p key={i}>{coin.rank}. {coin.name}</p>
-                  ))
+                  data.coin_data.map((coin, i) => 
+                  <div className='cards'>
+                    <p>${coin.price}</p>
+                    <p key={i}><img src={coin.iconUrl} />{coin.rank}. {coin.name}
+                    </p>
+                  </div>
+                  )
               )}
             </div>
         </div>
