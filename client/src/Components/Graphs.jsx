@@ -11,6 +11,7 @@ export const options = {
 };
 
 function Graphs() {
+    const uuid = "razxDUgYGNAdQ"
 
     const [data, setData] = useState([{}])
     
@@ -19,7 +20,7 @@ function Graphs() {
     ];
 
     useEffect(() =>  {
-      fetch("/graphs").then(
+      fetch(`/graphs/${uuid}`).then(
         res => res.json()
       ).then(
         data => {
