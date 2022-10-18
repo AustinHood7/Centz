@@ -11,6 +11,7 @@ export const options = {
 };
 
 function Graphs() {
+    //default to Ethereum
     const uuid = "razxDUgYGNAdQ"
 
     const [data, setData] = useState([{}])

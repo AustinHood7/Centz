@@ -25,9 +25,9 @@ function Coins() {
               ): (
                   data.coin_data.map((coin, i) => 
                   <div className='cards'>
-                    <p>${coin.price}</p>
-                    <p key={i}><img src={coin.iconUrl} />{coin.rank}. {coin.name}
-                    </p>
+                    <img src={coin.iconUrl} />
+                    <p key={i}>{coin.rank}. {coin.name} Change: {coin.change} </p>
+                    <p>Price: ${coin.price} Market Cap: {coin.marketCap}</p>                    
                   </div>
                   )
               )}

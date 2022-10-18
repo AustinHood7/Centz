@@ -87,8 +87,8 @@ div.coins {
 }
 
 div.cards {
-  width:300px;
-  height:100px;
+  width:400px;
+  height:125px;
   border:1px solid #CCCC; 
   background-color: #CCCC;
   position: relative;
@@ -106,7 +106,9 @@ div.cards img {
 
 div.cards p {
   margin: 0px;
+  text-align: justify;
 }
+
 
 .content {
   background: transparent;
