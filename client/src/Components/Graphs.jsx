@@ -19,7 +19,7 @@ function Graphs() {
     ];
 
     useEffect(() =>  {
-      fetch(`/graphs`).then(
+      fetch("/graphs").then(
         res => res.json()
       ).then(
         data => {
