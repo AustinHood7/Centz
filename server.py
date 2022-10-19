@@ -23,15 +23,16 @@ def top_coins():
 
     return { "status": 200, "coin_data": top_coins_data["data"]["coins"] }
 
-@app.route("/graphs/<coin_id>")
+@app.route("/graphs")
 @cross_origin()
-def getGraphData(coin_id):
+def getGraphData():
     data_source = DataSource()
 
     # assuming that user requests bitcoin data for last 24 hrs (default)
+    uuid = "Qwsogvtv82FCd" # Bitcoin
 
     # Get coin data for coin of uuid
-    price_history = data_source.get_data_for_coin(coin_id)
+    price_history = data_source.get_data_for_coin(uuid)
 
     # if no data is found
     if price_history.get('status') == 'fail':

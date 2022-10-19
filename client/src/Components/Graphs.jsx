@@ -11,8 +11,6 @@ export const options = {
 };
 
 function Graphs() {
-    //default to Ethereum
-    const uuid = "razxDUgYGNAdQ"
 
     const [data, setData] = useState([{}])
     
@@ -21,7 +19,7 @@ function Graphs() {
     ];
 
     useEffect(() =>  {
-      fetch(`/graphs/${uuid}`).then(
+      fetch(`/graphs`).then(
         res => res.json()
       ).then(
         data => {
