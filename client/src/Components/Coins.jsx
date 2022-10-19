@@ -5,20 +5,6 @@ import { Chart } from 'react-google-charts'
 
 function Coins() {
 
-    const options = {
-      title: "Coin Name",
-      hAxis: { title: "24h", titleTextStyle: { color: "#333" } },
-      //vAxis: { minValue: 0 },
-      chartArea: { width: "50%", height: "50%" },
-      legend: "none",
-    };
-
-    const graphData = [
-      ["X", "Y"],
-      [1, 2],
-      [3, 4]
-    ]
-
     const [data, setData] = useState([{}])
     
     useEffect(() =>  {
