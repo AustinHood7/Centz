@@ -1,5 +1,7 @@
 import React from 'react'
 import { useEffect, useState} from 'react'
+import { Chart } from 'react-google-charts'
+
 
 function Coins() {
 
@@ -23,9 +25,24 @@ function Coins() {
               {(typeof data.coin_data === 'undefined') ? (
                   <p>Loading...</p>
               ): (
-                  data.coin_data.map((coin, i) => (
-                  <p key={i}>{coin.rank}. {coin.name}</p>
-                  ))
+                  data.coin_data.map((coin, i) => 
+                  <div className='parent'>
+                    <div className='cards'>
+                      
+                      <p key={i}>{coin.rank}. {coin.name}</p>
+                      <p className="change">Change: {coin.change}</p>
+                      <img src={coin.iconUrl} />
+                      <p> Price: ${coin.price} </p>
+                      <p>Market Cap: {coin.marketCap}</p>
+                                 
+                      {/*}
+                      <div className='miniGraphs'>   
+                      <Chart chartType="LineChart" width="100px" height="50px" data={graphData} options={options}/>
+                      </div>
+                      */}
+                       </div>
+                    </div>
+                  )
               )}
             </div>
         </div>

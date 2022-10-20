@@ -10,6 +10,7 @@ CORS(app)
 @app.route("/top-coins")
 @cross_origin()
 def top_coins():
+
     data_source = DataSource()
 
     # Get top 50 coins
@@ -34,7 +35,7 @@ def getGraphData():
     price_history = data_source.get_data_for_coin(uuid)
 
     # if no data is found
-    if not price_history:
+    if price_history.get('status') == 'fail':
         # tell the user that no results were found
         return { "status": 404, "error": "No results found" }
 
