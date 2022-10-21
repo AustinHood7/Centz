@@ -1,11 +1,28 @@
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import logo from '../Assets/centz50x65.png'
 import SearchBar from './SearchBar';
+import { useEffect, useState} from 'react'
 
 export default function Navbar() {
+
+    const [data, setData] = useState([{}])
+
+    useEffect(() =>  {
+        fetch("/top-coins").then(
+        res => res.json()
+        ).then(
+        data => {
+            setData(data)
+            console.log(data)
+        }
+        )
+    }, [])
+    
     return (
+
+        
         <nav className="nav">
-            <SearchBar/>
+            <SearchBar placeholder="Search..." data={data}/>
             <Link to="/" className="site-title"><img src={logo} alt=''/></Link>
             <ul>
                 <CustomLink to="/about">About</CustomLink>

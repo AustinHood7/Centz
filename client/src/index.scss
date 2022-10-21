@@ -47,7 +47,7 @@ body {
 .nav ul li {
   border: 0px;
   border-radius: 1rem;
-  padding: .5rem;
+  padding: 1rem;
 }
 
 
@@ -56,9 +56,7 @@ body {
   text-decoration: none;
   height: 100%;
   display: flex;
-  align-items: center;
-  padding: .25rem;
-  
+  align-items: center;  
 }
 
 .nav li.active {
@@ -66,7 +64,7 @@ body {
 }
 
 .nav li:hover {
-  background-color: #374151;
+  background-color: #2d4a7c;
 }
 
 div.top-coins {
@@ -89,12 +87,15 @@ div.coins {
 .content {
   background: transparent;
   width: 25vw;
+  height: 25vh;
   //box-shadow: 0 0 3em rgba(0,0,0,.15);
   position: relative;
   margin-left: 3rem;
+  margin-top: 5.8rem;
 }
 
 .search {
+  margin: 2em 0 0 0;
   --size: 60px;
   border: 2px solid #426cb4;
   display: flex;
@@ -105,7 +106,7 @@ div.coins {
   width: var(--size);
   height: var(--size);
   //margin-left: auto;
-  transition: width 450ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: width 500ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
   padding: 3px;
 }
 
@@ -164,4 +165,47 @@ div.coins {
       box-shadow: 0 0 10px rgba(0,0,0,.65);
     }
   }
+}
+
+.data_coins {
+  display: block;
+  cursor: pointer;
+  padding: 1.5rem;
+  font-size: large;
+  border: 0;
+  border-radius: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;  
+}
+
+.dataResult {
+  color: #e0f2fe;
+  font-weight: 600;
+}
+
+.data_coins:hover {
+  background-color: #5079bf;
+}
+
+
+.results {
+  overflow-y: auto;
+  border: 0;
+  border-radius: 0 0 1rem 1rem;
+  height: 30vh;
+  margin: 0 1.6em 0 1.6em;  
+  background-color: #2d4a7c;
+  padding: .5rem;
+  box-shadow: 0px 10px 10px #1f2937;
+}
+
+.results::-webkit-scrollbar {
+  display: none;
+}
+
+.coinIcon {
+  height: 40px;
+  width: 40px;
+  margin-right: 1rem;
 }
