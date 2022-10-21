@@ -35,7 +35,6 @@ A react-flask based web application to provide a platform for providing real-tim
 ### **Project Deadlines**
 
 - Sep 6: Project Proposal (DONE)
-- Oct 2: Rough Draft due - use case diagram, SCMR (Dont know what this is)
 - Oct 14: Project Check-in 1 (DONE)
 - Oct 21: Project Prototype/Release 1
 - Nov 6: Project Check-in 2
