@@ -110,6 +110,16 @@ div.cards p {
   text-align: center;
 }
 
+.positive-change {
+  border:1px solid rgb(0, 217, 100); 
+  background-color: rgba(26, 137, 23, 0.1);
+}
+
+.negative-change {
+  border: 1px solid rgb(179, 0, 0);
+  background-color: rgba(186, 4, 2, 0.1);
+}
+
 .content {
   background: transparent;
   width: 25vw;

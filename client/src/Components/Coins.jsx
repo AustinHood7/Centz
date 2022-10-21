@@ -27,7 +27,11 @@ function Coins() {
               ): (
                   data.coin_data.map((coin, i) => 
                   <div className='parent'>
-                    <div className='cards'>
+                    <div className='cards'
+                        style={{
+                          backgroundColor: coin.change > 0 ? "rgba(26, 137, 23, 0.1)" : "rgba(186, 4, 2, 0.1)",
+                          border: coin.change > 0 ?  "1px solid rgb(0, 217, 100)" : "1px solid rgb(179, 0, 0)"
+                        }}>
                       
                       <p key={i}>{coin.rank}. {coin.name}</p>
                       <p className="change">Change: {coin.change}</p>
