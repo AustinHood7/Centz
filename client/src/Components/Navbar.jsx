@@ -31,6 +31,7 @@ export default function Navbar() {
     )
 }
 
+//temp comment
 function CustomLink({ to, children, ...props }) {
 
     //This is making sure that the url is the exact same
