@@ -1,6 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { useState } from 'react'
 
 function SearchBar({placeholder, data}) {
 
@@ -26,9 +25,18 @@ function SearchBar({placeholder, data}) {
     setWordEntered("");
   };
 
-  console.log(filteredData);
-  console.log(data.coin_data)
-
+  /*const handleSubmit = async e => {
+    e.preventDefault()
+    let res = await fetch('http://localhost:5000/search', {  
+      method: 'POST',
+      headers: {
+        "content_type": "application/json",
+     }, 
+      body: JSON.stringify({ query: query }) 
+    }).then(resp => console.log(resp.json()))
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+  }*/
 
   return (
     <div className="content">
