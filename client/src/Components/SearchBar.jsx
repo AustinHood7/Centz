@@ -1,12 +1,31 @@
 import React, {useState} from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 
-function SearchBar() {
-  const [query, setQuery] = useState("")
+function SearchBar({placeholder, data}) {
 
+  const [filteredData, setFilteredData] = useState([]);
+  const [wordEntered, setWordEntered] = useState("");
 
-  // send the search query to the backend
-  const handleSubmit = async e => {
+  const handleFilter = (event) => {
+    const searchWord = event.target.value;
+    setWordEntered(searchWord);
+    const newFilter = data.coin_data.filter((value) => {
+      return value.name.toLowerCase().includes(searchWord.toLowerCase());
+    });
+
+    if (searchWord === "") {
+      setFilteredData([]);
+    } else {
+      setFilteredData(newFilter);
+    }
+  };
+
+  const clearInput = () => {
+    setFilteredData([]);
+    setWordEntered("");
+  };
+
+  /*const handleSubmit = async e => {
     e.preventDefault()
     let res = await fetch('http://localhost:5000/search', {  
       method: 'POST',
@@ -17,27 +36,36 @@ function SearchBar() {
     }).then(resp => console.log(resp.json()))
     .then(data => console.log(data))
     .catch(err => console.log(err))
-  }
+  }*/
 
   return (
-    <div class="content">
-        <div class="search">
-          <form onSubmit={handleSubmit}>
+    <div className="content">
+        <div className="search">
             <input 
               type="text" 
-              class="search__input" 
+              className="search__input" 
               aria-label="search" 
-              placeholder="Search..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}/>
-          </form>
-          <button 
-              class="search__submit" 
-              aria-label="submit search"
-              onClick={handleSubmit}>
-                <AiOutlineSearch color='#e0f2fe'/>
-          </button>
+              placeholder={placeholder} 
+              onChange={handleFilter}
+            />
+            <button className="search__submit" aria-label="submit search"><AiOutlineSearch color='#e0f2fe'/></button>
         </div>
+        {filteredData.length !== 0 && (
+          <div className='results'>
+              <div className='dataResult'>
+                {(typeof filteredData === 'undefined') ? (
+                          <div>Loading...</div>
+                      ): (
+                          filteredData.map((value, i) => (
+                            <div className="data_coins" key={i}>
+                              <img className='coinIcon' src={value.iconUrl} alt=''/>
+                              {value.rank}. {value.name}
+                            </div>
+                      ))
+                )}
+              </div>
+          </div>
+      )}
     </div>
   )
 }

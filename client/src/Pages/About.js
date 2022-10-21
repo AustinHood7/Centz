@@ -2,5 +2,9 @@ import Graphs from "../Components/Graphs"
 
 
 export default function About() {
-    return <Graphs />
+    return (
+            <>
+              <div className="graphs"><Graphs /></div>
+            </>
+          )
   }
