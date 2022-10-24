@@ -129,7 +129,7 @@ div.cards p {
   position: relative;
   width: var(--size);
   height: var(--size);
-  margin-left: auto;
+  //margin-left: auto;
   transition: width 500ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
   padding: 3px;
 }
