@@ -9,18 +9,18 @@ A react-flask based web application to provide a platform for providing real-tim
 
 ## **Table of Contents**
 
-1. [Project Basics](#basics)
-2. [Design Diagrams](#design)
+1. [Project Basics](#project-basics)
+2. [Design Diagrams](#design-diagrams)
 3. [Resources](#resources)
-4. [Things To Do](#todo)
-5. [Blog Posts](#blogs)
+4. [Things To Do](#things-to-do)
+5. [Blog Posts](#blog-posts)
 6. [Problems](#problems)
-7. [Pre-development Planning](#predev)
+7. [Pre-development Planning](#pre-development-planning)
 8. [Acknowledgments](#acknowledgments)
 
 &nbsp;
 
-## [Project Basics](#basics)
+## [Project Basics]
 
 ### Project Members
 
@@ -54,7 +54,7 @@ The application has a ReactJS (JavaScript) front-end and a Flask (Python) back-e
 
 &nbsp;
 
-## [Design Diagrams](#design)
+## [Design Diagrams]
 
 ### Figma
 
@@ -72,7 +72,7 @@ Needs to be updated
 
 &nbsp;
 
-## [Resources](#resources)
+## [Resources]
 
 - [GitHub](https://github.com/AustinHood7/Centz) - [Heroku App](http://centz.herokuapp.com)
 - Front-end: ReactJS
@@ -84,13 +84,13 @@ Needs to be updated
 
 &nbsp;
 
-## [Things To Do](#todo)
+## [Things To Do]
 
 See [Issues page](https://github.com/AustinHood7/Centz/issues) or [Kanban board](https://github.com/users/AustinHood7/projects/1)
 
 &nbsp;
 
-## [Blog Posts](#blogs)
+## [Blog Posts]
 
 [Git Source Control](/docs/git.pdf)
 
@@ -98,7 +98,7 @@ See [Issues page](https://github.com/AustinHood7/Centz/issues) or [Kanban board]
 
 &nbsp;
 
-## [Problems](#problems)
+## [Problems]
 
 - .gitignore - include node_modules (from React), venv (from Python virtual environment) [React](https://github.com/AustinHood7/Centz/blob/main/client/.gitignore), [Python](<(https://github.com/AustinHood7/Centz/blob/main/.gitignore)>)
 - Epoch time - convert to normal time
@@ -110,7 +110,7 @@ See [Issues page](https://github.com/AustinHood7/Centz/issues) or [Kanban board]
 
 &nbsp;
 
-## [Pre-development Planning](#predev)
+## [Pre-development Planning]
 
 ### **Project Ideas**
 
@@ -152,7 +152,7 @@ See [Issues page](https://github.com/AustinHood7/Centz/issues) or [Kanban board]
 
 &nbsp;
 
-## [Acknowledgements](#acknowledgements)
+## [Acknowledgements]
 
 - [What to do with venv when putting flask on Git](https://medium.com/wealthy-bytes/the-easiest-way-to-use-a-python-virtual-environment-with-git-401e07c39cde)
 - [Hosting Flask React App on Heroku](https://www.youtube.com/watch?v=h96KP3JMX7Q&t=1258s)
