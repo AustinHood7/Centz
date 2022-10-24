@@ -41,6 +41,25 @@ def getGraphData():
 
     return { "status": 200, "coin_data": price_history["data"] }
 
+@app.route("/info")
+@cross_origin()
+def getCoinData():
+    data_source = DataSource()
+
+    # assuming that user requests bitcoin data for last 24 hrs (default)
+    uuid = "Qwsogvtv82FCd" # Bitcoin
+
+    # Get coin data for coin of uuid
+    coinInfo = data_source.getCoinInfo(uuid)
+
+    # if no data is found
+    if coinInfo.get('status') == 'fail':
+        # tell the user that no results were found
+        return { "status": 404, "error": "No results found" }
+
+    return { "status": 200, "info": coinInfo["data"] }
+
+
 @app.route("/search", methods=["POST"])
 @cross_origin()
 def find_uuid():
