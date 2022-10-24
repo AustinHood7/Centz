@@ -20,7 +20,7 @@ A react-flask based web application to provide a platform for providing real-tim
 
 &nbsp;
 
-## [Project Basics]
+## Project Basics
 
 ### Project Members
 
@@ -54,7 +54,7 @@ The application has a ReactJS (JavaScript) front-end and a Flask (Python) back-e
 
 &nbsp;
 
-## [Design Diagrams]
+## Design Diagrams
 
 ### Figma
 
@@ -72,7 +72,7 @@ Needs to be updated
 
 &nbsp;
 
-## [Resources]
+## Resources
 
 - [GitHub](https://github.com/AustinHood7/Centz) - [Heroku App](http://centz.herokuapp.com)
 - Front-end: ReactJS
@@ -84,13 +84,13 @@ Needs to be updated
 
 &nbsp;
 
-## [Things To Do]
+## Things To Do
 
 See [Issues page](https://github.com/AustinHood7/Centz/issues) or [Kanban board](https://github.com/users/AustinHood7/projects/1)
 
 &nbsp;
 
-## [Blog Posts]
+## Blog Posts
 
 [Git Source Control](/docs/git.pdf)
 
@@ -98,7 +98,7 @@ See [Issues page](https://github.com/AustinHood7/Centz/issues) or [Kanban board]
 
 &nbsp;
 
-## [Problems]
+## Problems
 
 - .gitignore - include node_modules (from React), venv (from Python virtual environment) [React](https://github.com/AustinHood7/Centz/blob/main/client/.gitignore), [Python](<(https://github.com/AustinHood7/Centz/blob/main/.gitignore)>)
 - Epoch time - convert to normal time
@@ -110,7 +110,7 @@ See [Issues page](https://github.com/AustinHood7/Centz/issues) or [Kanban board]
 
 &nbsp;
 
-## [Pre-development Planning]
+## Pre-development Planning
 
 ### **Project Ideas**
 
@@ -152,7 +152,7 @@ See [Issues page](https://github.com/AustinHood7/Centz/issues) or [Kanban board]
 
 &nbsp;
 
-## [Acknowledgements]
+## Acknowledgements
 
 - [What to do with venv when putting flask on Git](https://medium.com/wealthy-bytes/the-easiest-way-to-use-a-python-virtual-environment-with-git-401e07c39cde)
 - [Hosting Flask React App on Heroku](https://www.youtube.com/watch?v=h96KP3JMX7Q&t=1258s)
