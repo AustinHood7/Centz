@@ -1,6 +1,3 @@
-"""
-author: Christian Apostoli
-"""
 import requests
 
 
@@ -41,6 +38,18 @@ class DataSource:
                                     params=self.querystring)
         return response.json()
 
+    def getCoinInfo(self, uuid):
+        """
+        Gets name, price, etc. for coin in JSON format
+        :param uuid: specific id set by coinranking
+        :return: JSON
+        """
+        self.url = f"https://api.coinranking.com/v2/coin/{uuid}"
+        response = requests.request("GET", self.url, headers=self.headers,
+                                    params=self.querystring)
+
+        return response.json()
+        
     def search_for_coin(self, query):
         """
         :param query: the user's query that is entered
