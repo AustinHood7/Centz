@@ -13,7 +13,7 @@ class DataSource:
     def get_data_for_top_coins(self):
         """
         Get JSON data from coinranking api for the top 50 coins
-        :return: dict
+        :return: JSON
         """
         self.url = "https://coinranking1.p.rapidapi.com/coins"
         self.querystring = {
@@ -28,7 +28,7 @@ class DataSource:
 
     def get_data_for_coin(self, uuid):
         """
-        Gets the JSON for the last 24 hrs of a certain coin
+        Gets the JSON for the last 24 hrs of a  coin
         :param uuid: the specific id set by coinranking for a coin
         :return: JSON
         """
@@ -52,8 +52,9 @@ class DataSource:
         
     def search_for_coin(self, query):
         """
-        :param query: the user's query that is entered
-        :return:
+        Finds any coins that have a similar name to the passed query
+        :param query: search query like "bitcoin"
+        :return: JSON
         """
         query = query.replace(' ', '+')
         self.url = f"https://api.coinranking.com/v2/search-suggestions?query={query} "
@@ -64,5 +65,8 @@ class DataSource:
 
 
     def timeline_to_1y(self):
+        """
+        sets the time period for api calls to 1 year for the object
+        """
         self.querystring["timePeriod"] = "1y"
         return

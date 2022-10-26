@@ -28,10 +28,10 @@ def top_coins():
 def getGraphData():
     data_source = DataSource()
 
-    # assuming that user requests bitcoin data for last 24 hrs (default)
+    # assuming that user requests bitcoin's price history for last 24 hrs 
     uuid = "Qwsogvtv82FCd" # Bitcoin
 
-    # Get coin data for coin of uuid
+    # Get price history for coin of uuid
     price_history = data_source.get_data_for_coin(uuid)
 
     # if no data is found
@@ -65,6 +65,8 @@ def getCoinData():
 def find_uuid():
     body = request.json
     data_source = DataSource()
+
+    # find the results of coins similar to the entered query
     search_results = data_source.search_for_coin(body['query'])
 
     if not search_results:
