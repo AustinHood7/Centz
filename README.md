@@ -2,6 +2,8 @@
 
 A react-flask based web application to provide a platform for providing real-time data on cryptocurrency. This web app focuses on helping find the top current crypto and visualize trends using the Google Charts API.
 
+# [Deployment](centz.herokuapp.com)
+
 ### Built With
 
 - [![React][react.js]][react-url]
