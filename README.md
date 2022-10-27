@@ -46,6 +46,9 @@ A react-flask based web application to provide a platform for providing real-tim
 
 &nbsp;
 
+### **Programming Standards**
+We are following [Google Style Guides](https://google.github.io/styleguide/) as close as possible
+
 ### **Original Project Proposal**
 
 We will be building a web application that will take cryptocurrency data and use this to build analytics including graphs and charts based on the user's choice of coins and timelines. Essentially, the user will be able to build a profile of their investments and utilize the analytics of these investments to help them make well-informed decisions.
