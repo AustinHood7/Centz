@@ -30,7 +30,7 @@ A react-flask based web application to provide a platform for providing real-tim
 | ------------------ | ----------------------------- |
 | Christian Apostoli | cpapostoli4001@eagle.fgcu.edu |
 | Jake Hanson        | jwhanson6816@eagle.fgcu.edu   |
-| Austin Hood        |                               |
+| Austin Hood        | amhood6127@eagle.fgcu.edu     |                        
 
 &nbsp;
 
