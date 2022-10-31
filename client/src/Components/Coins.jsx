@@ -32,13 +32,17 @@ function Coins() {
                           backgroundColor: coin.change > 0 ? "rgba(26, 137, 23, 0.1)" : "rgba(186, 4, 2, 0.1)",
                           border: coin.change > 0 ?  "1px solid rgb(0, 217, 100)" : "1px solid rgb(179, 0, 0)"
                         }}>
-                      
-                      <p key={i}>{coin.rank}. {coin.name}</p>
-                      <p className="change">Change: {coin.change}</p>
+
                       <img src={coin.iconUrl} />
-                      <p> Price: ${coin.price} </p>
-                      <p>Market Cap: {coin.marketCap}</p>
-                                 
+                      <div className='info'>
+                        <p className="coinName" key={i}>{coin.name} </p>
+                        <div className='rankTchange'>
+                          <p className="change">Change: {coin.change}</p>
+                          <p> Price: ${coin.price} </p>
+                          <p>Market Cap: {coin.marketCap}</p>
+                        </div>
+                      </div>
+                      <p className='rank'>{coin.rank}</p>
                       {/*}
                       <div className='miniGraphs'>   
                       <Chart chartType="LineChart" width="100px" height="50px" data={graphData} options={options}/>
