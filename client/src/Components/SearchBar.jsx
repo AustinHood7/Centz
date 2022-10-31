@@ -47,6 +47,7 @@ function SearchBar({placeholder, data}) {
               aria-label="search" 
               placeholder={placeholder} 
               onChange={handleFilter}
+              onBlur={clearInput}
             />
             <button className="search__submit" aria-label="submit search"><AiOutlineSearch color='#e0f2fe'/></button>
         </div>
