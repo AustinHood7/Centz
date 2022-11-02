@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
+import CircleLoader from "react-spinners/CircleLoader"
 
 function SearchBar({placeholder, data}) {
 
@@ -55,7 +56,12 @@ function SearchBar({placeholder, data}) {
           <div className='results'>
               <div className='dataResult'>
                 {(typeof filteredData === 'undefined') ? (
-                          <div>Loading...</div>
+                          <div>
+                            <CircleLoader
+                              color="#426cb4"
+                              size={100}
+                            />
+                        </div>
                       ): (
                           filteredData.map((value, i) => (
                             <div className="data_coins" key={i}>

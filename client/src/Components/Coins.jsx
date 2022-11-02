@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState} from 'react'
 import { Chart } from 'react-google-charts'
+import CircleLoader from "react-spinners/CircleLoader"
 
 
 function Coins() {
@@ -23,7 +24,12 @@ function Coins() {
             <h1 className='title'>Top Coins For Today</h1>
             <div className='coins'>
               {(typeof data.coin_data === 'undefined') ? (
-                  <p>Loading...</p>
+                  <p className='loader'>                  
+                    <CircleLoader
+                      color="#426cb4"
+                      size={200}
+                    />
+                  </p>
               ): (
                   data.coin_data.map((coin, i) => 
                   <div className='parent'>
