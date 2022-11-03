@@ -26,11 +26,11 @@ A react-flask based web application to provide a platform for providing real-tim
 
 ### Project Members
 
-| Name               | Email                         |
-| ------------------ | ----------------------------- |
-| Christian Apostoli | cpapostoli4001@eagle.fgcu.edu |
-| Jake Hanson        | jwhanson6816@eagle.fgcu.edu   |
-| Austin Hood        | amhood6127@eagle.fgcu.edu     |                        
+| Name               | LinkedIn                                       |
+| ------------------ | ---------------------------------------------- |
+| Christian Apostoli | https://www.linkedin.com/in/christianapostoli/ |
+| Jake Hanson        | https://www.linkedin.com/in/jakewhans/         |
+| Austin Hood        | https://www.linkedin.com/in/austin-hood7/      |                        
 
 &nbsp;
 
