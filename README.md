@@ -72,8 +72,8 @@ Needs to be updated
 
 ### Component Diagram
 
-Needs to be updated
-![Component Diagram](/docs/component.png)
+Updated 11/10/22 <br>
+![Component Diagram](/docs/componentv2.png)
 
 &nbsp;
 
