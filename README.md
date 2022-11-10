@@ -67,7 +67,7 @@ The application has a ReactJS (JavaScript) front-end and a Flask (Python) back-e
 
 ### Use Case Diagram
 
-Needs to be updated
+Needs to be updated <br>
 ![Use Case Diagram](/docs/useCase.png)
 
 ### Component Diagram
