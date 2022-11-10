@@ -246,3 +246,23 @@ p.rank {
   width: 40px;
   margin-right: 1rem;
 }
+
+.bottomFooter footer {
+  position: fixed;
+  background-color: #372D1F;
+  color: #eeeee4;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  text-align: center;
+}
+
+footer a {
+  color:#A9A9C9;
+}
+
+footer a:hover {
+  color: #5D5D94;
+}
+
