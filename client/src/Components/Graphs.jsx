@@ -8,7 +8,7 @@ export const options = {
   hAxis: { title: "24h", titleTextStyle: { color: "#333" } },
   //vAxis: { minValue: 0 },
   chartArea: { width: "70%", height: "70%" },
-  legend: "none",
+  legend: "none"
 };
 
 function Graphs() {

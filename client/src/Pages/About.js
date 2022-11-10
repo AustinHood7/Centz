@@ -1,4 +1,5 @@
 import Body from "../Components/Body"
+import Footer from "../Components/Footer"
 import Graphs from "../Components/Graphs"
 
 export default function About() {
@@ -6,6 +7,7 @@ export default function About() {
             <>
               <Body />
               <div className="graphs"><Graphs /></div>
+              <Footer />
             </>
           )
   }
