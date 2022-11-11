@@ -305,3 +305,57 @@ footer a:hover {
   color: #5D5D94;
 }
 
+
+/* START ABOUT.JS */
+
+.aboutTitle > h1 {
+  font-size: 42pt;
+  text-align: center;
+  margin-top: 60px;
+  color: #e0f2fe;
+}
+
+.aboutTitle > h3 {
+  font-size: 18pt;
+  text-align: center;
+  margin-top: 20px;
+  color: #e0f2fe;
+}
+
+.aboutTeam > h2 {
+  font-size: 32pt;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: -40px;
+  color: #e0f2fe;
+}
+
+.aboutTeam > h3 {
+  font-size: 24pt;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  color: #e0f2fe;
+}
+
+.aboutTeam > p {
+  font-size: 16pt;
+  text-align: left;
+  width: 80%;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  margin-left: 80px;
+  color: #e0f2fe;
+}
+
+.aboutTeam > a {
+  font-size: 14pt;
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 40px;
+  color: #A9A9C9;
+}
+.aboutTeam > a:hover {
+  color: #5D5D94;
+}
