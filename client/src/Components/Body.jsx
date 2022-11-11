@@ -16,23 +16,6 @@ function Body() {
       )
     }, [])
 
-    const bodyStyling = {
-      body: {
-        marginLeft: 20,
-      },
-      title: {
-        display: "inline",
-        size: 30,
-      },
-      icon: {
-        display: "inline",
-        height: 40,
-        width: 40,
-        marginTop: 10,
-        marginRight: 5,
-      }
-    }
-
     function convertDate(date) {
       var std = new Date(date * 1000); // convert to UTC from Epoch
       var shortDate = [
@@ -43,18 +26,33 @@ function Body() {
       //console.log(shortDate);
       return shortDate;
     }
+
+    function parseDesc() {
+      let desc = data.info.coin.description;
+      let begin = desc.replace("<p>", "");
+      let end = begin.split("</p>", "1");
+      return end
+    }
   
     return (
         <div>
             {(typeof data.info === 'undefined') ? (
                 <p>Loading...</p>
             ): (
-                <div>
+                <div className='bodyMain'>
                   <br />
-                  <h1 style={bodyStyling.body}>
-                    <img style={bodyStyling.icon} src={data.info.coin.iconUrl} />
-                    {data.info.coin.name}
-                  </h1><br />
+                  <div>
+                    <img className='bodyImg' src={data.info.coin.iconUrl} />
+                    <br />
+                    <h1 className='bodyTitle'>
+                      {data.info.coin.name} <p style={{color: data.info.coin.color, display: 'inline'}}>[{data.info.coin.symbol}]</p>
+                    </h1>
+                  </div>
+                  <div className='bodyDesc'>
+                    <p>
+                      {parseDesc()}
+                    </p>
+                  </div>
                 </div>
                 )}
         </div>

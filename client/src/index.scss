@@ -247,8 +247,47 @@ p.rank {
   margin-right: 1rem;
 }
 
+
+/* START BODY.JSX */
+
+div.bodyMain {
+  background-color: #1f2937;
+  height: 400px;
+  display: flex;
+  flex-flow: column wrap;
+  color: #e0f2fe;
+  padding: 2rem;
+  justify-items: center;
+  text-align: left;
+}
+
+.bodyImg {
+  height: 180px;
+  width: 180px;
+  margin-top: 10px;
+}
+
+.bodyTitle {
+  font-size: 48pt;
+  text-align: left;
+}
+
+.bodyDesc {
+  font-size: 14pt;
+  text-align: right;
+  width: 40%;
+  margin-top: 20px;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* START FOOTER.JSX */
+
 .bottomFooter footer {
-  position: fixed;
+  position: static;
   background-color: #372D1F;
   color: #eeeee4;
   bottom: 0;
