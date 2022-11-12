@@ -39,7 +39,8 @@ A react-flask based web application to provide a platform for providing real-tim
 - Sep 6: Project Proposal (DONE)
 - Oct 14: Project Check-in 1 (DONE)
 - Oct 21: Project Prototype/Release 1 (DONE)
-- Nov 6: Project Check-in 2
+- Nov 6: Project Check-in 2 (DONE)
+- Nov 7: Deliverable Basic functional product (DONE)
 - Nov 20: Final Check-in - Presentation Draft
 - Nov 29: Group Presentation / Demo
 - Dec 16: Project / Report Due (ideally completed far before this date)
