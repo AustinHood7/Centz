@@ -7,7 +7,7 @@ export default function About() {
               {/* Not sure whether to have bios in first or third person... -Jake */}
               <div className="aboutTitle">
                 <h1>About Centz</h1>
-                <h3>Centz is a cryptocurrency web application that takes API-driven cryptocurrency data and shows it in an easy to comprehend format.</h3>
+                <h3>Centz is a web application that takes cryptocurrency data from the Coinranking API and shows it in a user-friendly format.</h3>
               </div>
               <br />
               <div className="aboutTeam">
@@ -15,7 +15,10 @@ export default function About() {
                 <br />
                 <h3>Christian Apostoli</h3>
                   <p>
-                    CHRISTIAN: ENTER BIO HERE
+                    Hi, I'm Christian and I am currently a Senior Software Engineering major at Florida Gulf Coast University.
+                    Most of my work was on writing the back-end with the Coinranking API and some light work on the front-end with React.
+                    I learned quite a bit on front-end development, deployment, and using git with a team, and I am excited to bring these
+                    skills to the industry as a Junior Developer.
                   </p>
                   <a href="https://www.linkedin.com/in/christianapostoli/" target="_blank">Christian's LinkedIn</a>
                   <br /><br />
