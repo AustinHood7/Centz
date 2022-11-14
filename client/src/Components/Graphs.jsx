@@ -4,8 +4,8 @@ import { Chart } from 'react-google-charts'
 import CircleLoader from "react-spinners/CircleLoader"
 
 export const options = {
-  hAxis: { title: "Time", titleTextStyle: { color: "#333" } },
-  vAxis: { title: "Price (USD$)", titleTextStyle: { color: "#333" } },
+  hAxis: { title: "Time", titleTextStyle: { color: "#e0f2fe" }, textStyle: { color: "#e0f2fe" } },
+  vAxis: { title: "Price (USD$)", titleTextStyle: { color: "#e0f2fe" }, textStyle: { color: "#e0f2fe" }},
   chartArea: { width: "70%", height: "70%" },
   legend: "none",
   animation: {
@@ -13,6 +13,8 @@ export const options = {
     easing: "out",
     duration: 500,
   },
+  backgroundColor: { fill:'#111827' },
+  legend: { textStyle: { color: "#e0f2fe" }}
 };
 
 function Graphs() {
@@ -60,7 +62,7 @@ function Graphs() {
                   }             
                 <Chart
                   chartType="AreaChart"
-                  width="100%"
+                  width="80%"
                   height="450px"
                   data={graphData}
                   options={options}

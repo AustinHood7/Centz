@@ -6,7 +6,7 @@ export default function Home() {
   return(
     <div className="Home">
       <Body />
-      <div className="graphs"><Graphs /></div>
+      <div className="homeGraphs"><Graphs /></div>
       <Footer />
     </div>
   )
