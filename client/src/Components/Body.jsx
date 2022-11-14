@@ -41,7 +41,7 @@ function Body() {
             ): (
                 <div className='bodyMain'>
                   <br />
-                  <div>
+                  <div className='bodyContainer'>
                     <img className='bodyImg' src={data.info.coin.iconUrl} />
                     <br />
                     <h1 className='bodyTitle'>
