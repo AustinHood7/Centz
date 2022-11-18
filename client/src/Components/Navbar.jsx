@@ -19,8 +19,6 @@ export default function Navbar() {
     }, [])
     
     return (
-
-        
         <nav className="nav">
             <SearchBar placeholder="Search..." data={data}/>
             <Link to="/" className="site-title"><img src={logo} alt=''/></Link>
