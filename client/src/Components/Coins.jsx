@@ -35,7 +35,7 @@ function Coins() {
                   <div className='parent'>
                     <div className='cards'
                         style={{
-                          backgroundColor: coin.change > 0 ? "rgba(26, 137, 23, 0.1)" : "rgba(186, 4, 2, 0.1)",
+                          backgroundColor: coin.change > 0 ? "rgb(0, 217, 100)" : "rgb(179, 0, 0)",
                           border: coin.change > 0 ?  "1px solid rgb(0, 217, 100)" : "1px solid rgb(179, 0, 0)"
                         }}>
 

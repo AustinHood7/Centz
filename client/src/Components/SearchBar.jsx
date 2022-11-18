@@ -26,19 +26,6 @@ function SearchBar({placeholder, data}) {
     setWordEntered("");
   };
 
-  /*const handleSubmit = async e => {
-    e.preventDefault()
-    let res = await fetch('http://localhost:5000/search', {  
-      method: 'POST',
-      headers: {
-        "content_type": "application/json",
-     }, 
-      body: JSON.stringify({ query: query }) 
-    }).then(resp => console.log(resp.json()))
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
-  }*/
-
   return (
     <div className="content">
         <div className="search">
