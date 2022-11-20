@@ -52,7 +52,6 @@ Here is the presentation for our project [Centz Presentation Draft](https://docs
 
 &nbsp;
 
-
 ### **Programming Standards**
 We are following [Google Style Guides](https://google.github.io/styleguide/) as close as possible
 
