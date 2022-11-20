@@ -41,11 +41,17 @@ A react-flask based web application to provide a platform for providing real-tim
 - Oct 21: Project Prototype/Release 1 (DONE)
 - Nov 6: Project Check-in 2 (DONE)
 - Nov 7: Deliverable Basic functional product (DONE)
-- Nov 20: Final Check-in - Presentation Draft
+- Nov 20: Final Check-in - Presentation Draft (Done)
 - Nov 29: Group Presentation / Demo
 - Dec 16: Project / Report Due (ideally completed far before this date)
 
 &nbsp;
+
+### **Presentation**
+Here is the presentation for our project [Centz Presentation Draft](https://docs.google.com/presentation/d/1Ur0ZcugUiOUjd86tnYk798fDno0u3d2O7vZ4JDP1g0c/edit?usp=sharing)
+
+&nbsp;
+
 
 ### **Programming Standards**
 We are following [Google Style Guides](https://google.github.io/styleguide/) as close as possible
