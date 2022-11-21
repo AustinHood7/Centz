@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {MdKeyboardArrowRight, MdKeyboardArrowLeft} from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import './Sidebar.css';
+import './Sidebar2.css';
 import { IconContext } from 'react-icons';
 import CircleLoader from "react-spinners/CircleLoader"
 
-function Sidebar() {
+function Sidebar2() {
 
   const [sidebar, setSidebar] = useState(true);
 
@@ -87,4 +87,4 @@ function Sidebar() {
   )
 }
 
-export default Sidebar
+export default Sidebar2
