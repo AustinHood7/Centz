@@ -7,14 +7,17 @@ import json
 app = Flask(__name__, static_folder='client/build', static_url_path='')
 CORS(app)
 
+# set global time period variable (24 hours default)
+time = "24h"
+# set global UUID variable (Bitcoin default) 
+uuid = "Qwsogvtv82FCd"
+
 @app.route("/top-coins")
 @cross_origin()
 def top_coins():
-
-    data_source = DataSource()
-
+    data = DataSource()
     # Get top 50 coins
-    top_coins_data = data_source.get_data_for_top_coins()
+    top_coins_data = data.get_data_for_top_coins()
 
     # if no coins were found
     if not top_coins_data:
@@ -25,14 +28,10 @@ def top_coins():
 
 @app.route("/graphs")
 @cross_origin()
-def getGraphData():
-    data_source = DataSource()
-
-    # assuming that user requests bitcoin's price history for last 24 hrs 
-    uuid = "Qwsogvtv82FCd" # Bitcoin
-
+def get_graph_data():
+    data = DataSource()
     # Get price history for coin of uuid
-    price_history = data_source.get_data_for_coin(uuid)
+    price_history = data.get_data_for_coin(uuid, time)
 
     # if no data is found
     if price_history.get('status') == 'fail':
@@ -43,14 +42,10 @@ def getGraphData():
 
 @app.route("/info")
 @cross_origin()
-def getCoinData():
-    data_source = DataSource()
-
-    # assuming that user requests bitcoin data for last 24 hrs (default)
-    uuid = "Qwsogvtv82FCd" # Bitcoin
-
+def get_coin_data():
+    data = DataSource()
     # Get coin data for coin of uuid
-    coinInfo = data_source.getCoinInfo(uuid)
+    coinInfo = data.get_coin_info(uuid)
 
     # if no data is found
     if coinInfo.get('status') == 'fail':
@@ -60,19 +55,16 @@ def getCoinData():
     return { "status": 200, "info": coinInfo["data"] }
 
 
-@app.route("/search", methods=["POST"])
+@app.route("/time", methods=["GET", "POST"])
 @cross_origin()
-def find_uuid():
-    body = request.json
-    data_source = DataSource()
+def time_period():
+    data = DataSource()
+    if request.method == "POST":
+        #print(f"{request.json} ")
+        price_history = data.get_data_for_coin(uuid, request.json['body'])
+        return { "status": 200, "apiData": price_history }
+    return {"indices" : ["1", "2", "3", "4"] }
 
-    # find the results of coins similar to the entered query
-    search_results = data_source.search_for_coin(body['query'])
-
-    if not search_results:
-        return {"status": 404, "error": "No results found" }
-
-    return { "status": 200, "coin_data": search_results } 
 
 @app.route('/')
 @cross_origin()

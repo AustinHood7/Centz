@@ -13,6 +13,7 @@ class DataSource:
     def get_data_for_top_coins(self):
         """
         Get JSON data from coinranking api for the top 50 coins
+
         :return: JSON
         """
         self.url = "https://coinranking1.p.rapidapi.com/coins"
@@ -26,22 +27,25 @@ class DataSource:
                                     params=self.querystring)
         return response.json()
 
-    def get_data_for_coin(self, uuid):
+    def get_data_for_coin(self, uuid, time):
         """
         Gets the JSON for the last 24 hrs of a  coin
-        :param uuid: the specific id set by coinranking for a coin
+        :param uuid: the specific id set by coinranking for a coin (default bitcoin)
+        :param time: the time period set by the user on the graphs page (default 24 hrs)
+
         :return: JSON
         """
-        self.url = f"https://coinranking1.p.rapidapi.com/coin/{uuid}/history"
+        self.url = f"https://coinranking1.p.rapidapi.com/coin/{uuid}/history?timePeriod={time}"
 
         response = requests.request("GET", self.url, headers=self.headers,
                                     params=self.querystring)
         return response.json()
 
-    def getCoinInfo(self, uuid):
+    def get_coin_info(self, uuid):
         """
         Gets name, price, etc. for coin in JSON format
         :param uuid: specific id set by coinranking
+
         :return: JSON
         """
         self.url = f"https://api.coinranking.com/v2/coin/{uuid}"
@@ -49,24 +53,3 @@ class DataSource:
                                     params=self.querystring)
 
         return response.json()
-        
-    def search_for_coin(self, query):
-        """
-        Finds any coins that have a similar name to the passed query
-        :param query: search query like "bitcoin"
-        :return: JSON
-        """
-        query = query.replace(' ', '+')
-        self.url = f"https://api.coinranking.com/v2/search-suggestions?query={query} "
-
-        response = requests.request("GET", self.url, headers=self.headers,
-                                    params=self.querystring)
-        return response.json()
-
-
-    def timeline_to_1y(self):
-        """
-        sets the time period for api calls to 1 year for the object
-        """
-        self.querystring["timePeriod"] = "1y"
-        return
