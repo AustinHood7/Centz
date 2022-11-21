@@ -48,7 +48,7 @@ A react-flask based web application to provide a platform for providing real-tim
 &nbsp;
 
 ### **Presentation**
-Here is the presentation for our project [Centz Presentation Draft](https://docs.google.com/presentation/d/1Ur0ZcugUiOUjd86tnYk798fDno0u3d2O7vZ4JDP1g0c/edit?usp=sharing)
+Here is the presentation for our project [Centz Presentation](https://docs.google.com/presentation/d/e/2PACX-1vRvB3jB3dTh8HM2Z2G4U86L9UZ5Se1Th1lz_PZGIco4JyxJaC9ZAfvbrsxuo7_JUw9uIoVVALk_YjUN/pub?start=false&loop=false&delayms=3000)
 
 &nbsp;
 
