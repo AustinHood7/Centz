@@ -1,12 +1,14 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
-import { Chart } from 'react-google-charts'
-import CircleLoader from "react-spinners/CircleLoader"
+import React from "react";
+import { useEffect, useState } from "react";
+import { Chart } from "react-google-charts";
+import CircleLoader from "react-spinners/CircleLoader";
 import { Button, Form } from "semantic-ui-react";
 import Select from "react-select";
 import axios from "axios";
 import { resolvePath } from "react-router-dom";
 
+// includes all timePeriods available to choose from CoinRanking
+// we may remove some of these to make the options look cleaner in the future
 const timeFrames = [
   { value: "1h", label: "1h" },
   { value: "3h", label: "3h" },
@@ -20,9 +22,18 @@ const timeFrames = [
   { value: "5y", label: "5y" },
 ];
 
+// graph options
 export const options = {
-  hAxis: { title: "Time", titleTextStyle: { color: "#e0f2fe" }, textStyle: { color: "#e0f2fe" } },
-  vAxis: { title: "Price (USD$)", titleTextStyle: { color: "#e0f2fe" }, textStyle: { color: "#e0f2fe" }},
+  hAxis: {
+    title: "Time",
+    titleTextStyle: { color: "#e0f2fe" },
+    textStyle: { color: "#e0f2fe" },
+  },
+  vAxis: {
+    title: "Price (USD$)",
+    titleTextStyle: { color: "#e0f2fe" },
+    textStyle: { color: "#e0f2fe" },
+  },
   chartArea: { width: "70%", height: "70%" },
   legend: "none",
   animation: {
@@ -30,97 +41,87 @@ export const options = {
     easing: "out",
     duration: 500,
   },
-  backgroundColor: { fill:'#111827' },
-  legend: { textStyle: { color: "#e0f2fe" }}
+  backgroundColor: { fill: "#111827" },
+  legend: { textStyle: { color: "#e0f2fe" } },
 };
 
 function Graphs() {
-    const [data, setData] = useState([{}]);
-    const [time, setTime] = useState();
-    const [SelectedData, setSelectedData] = useState();
-    
-    const graphData = [
-      ["Timestamp", "Price"],
-    ];
+  const [data, setData] = useState([{}]);
+  const [time, setTime] = useState();
+  const [SelectedData, setSelectedData] = useState();
 
-    useEffect(() =>  { // possibly useless now that we use /time request?
-      fetch("/graphs")
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-          //console.log(data)
-        });
-    }, []);
+  // graph array column names
+  const graphData = [["Timestamp", "Price"]];
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      axios
-        .post("/time", {
-          body: time,
-        })
-        .then((response) => {
-          //console.log(response.data.apiData.data);
-          setSelectedData(response.data.apiData.data);
-        })
-        .catch((error) => console.log(error));
-    };
+  useEffect(() => {
+    // possibly useless now that we use /time request?*****
+    // maybe utilize this to have a default 24 hour time period graph
+    fetch("/graphs")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        //console.log(data)
+      });
+  }, []);
 
-    function convertEpoch(epoch) {
-      return new Date(epoch * 1000)
-    }
+  // send timePeriod chosen by user to backend using axios
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .post("/time", {
+        body: time,
+      })
+      .then((response) => {
+        console.log(response.data.apiData.data);
+        setSelectedData(response.data.apiData.data);
+      })
+      .catch((error) => console.log(error));
+  };
 
-    const makeGraph = () => {
-      for (let x = 0; x < SelectedData.history.length; x++) {
-        graphData.push([
-          convertEpoch(SelectedData.history[x].timestamp),
-          parseFloat(SelectedData.history[x].price)]);
-      }
-    }
-
-
-    const handleDefault = () => {
-      const defaultVal = timeFrames[3].value
-      setTime(defaultVal);
-
-      console.log(defaultVal)
-      return defaultVal
-    }
-  
-    return (
-        <div className='graphs'>
-          <Form onSubmit={handleSubmit} className='graph-form'>
-            <label>Choose a time period:</label>
-            <Select
-              placeholder="Change Time Period"
-              value={handleDefault}
-              options={timeFrames}
-              onChange={(e) => setTime(e.value)}
-            />
-            <Button>Update Time Period</Button>
-          </Form>
-            {(typeof SelectedData === 'undefined') ? (
-                <p>                            
-                  <CircleLoader
-                    color="#426cb4"
-                    size={100}
-                  />
-                </p>
-            ): (
-                <div>
-                  {
-                    makeGraph()
-                  }         
-                <Chart
-                  chartType="AreaChart"
-                  width="80%"
-                  height="450px"
-                  data={graphData}
-                  options={options}
-                />
-                </div>
-                )}
-        </div>
-    );
+  // convert epoch time from CoinRanking API into normal time
+  function convertEpoch(epoch) {
+    return new Date(epoch * 1000);
   }
-  
-  export default Graphs
+
+  // make graph using data from backend/API - add it to array
+  const makeGraph = () => {
+    for (let x = 0; x < SelectedData.history.length; x++) {
+      graphData.push([
+        convertEpoch(SelectedData.history[x].timestamp),
+        parseFloat(SelectedData.history[x].price),
+      ]);
+    }
+  };
+
+  return (
+    <div className="graphs">
+      <Form onSubmit={handleSubmit} className="graph-form">
+        <label>Choose a time period:</label>
+        <Select
+          placeholder="Change Time Period"
+          options={timeFrames}
+          onChange={(e) => setTime(e.value)}
+        />
+        <Button>Update Time Period</Button>
+      </Form>
+      {typeof SelectedData === "undefined" ? (
+        <p>
+          <CircleLoader color="#426cb4" size={100} />
+        </p>
+      ) : (
+        <div>
+          {makeGraph()}
+          <Chart
+            chartType="AreaChart"
+            width="80%"
+            height="450px"
+            data={graphData}
+            options={options}
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Graphs;
