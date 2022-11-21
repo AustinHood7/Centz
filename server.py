@@ -7,6 +7,8 @@ import json
 app = Flask(__name__, static_folder='client/build', static_url_path='')
 CORS(app)
 
+time = "24h"
+
 @app.route("/top-coins")
 @cross_origin()
 def top_coins():
@@ -32,7 +34,7 @@ def getGraphData():
     uuid = "Qwsogvtv82FCd" # Bitcoin
 
     # Get price history for coin of uuid
-    price_history = data_source.get_data_for_coin(uuid)
+    price_history = data_source.get_data_for_coin(uuid, time)
 
     # if no data is found
     if price_history.get('status') == 'fail':
@@ -72,7 +74,20 @@ def find_uuid():
     if not search_results:
         return {"status": 404, "error": "No results found" }
 
-    return { "status": 200, "coin_data": search_results } 
+    return { "status": 200, "coin_data": search_results }
+
+
+@app.route("/time", methods=["GET", "POST"])
+@cross_origin()
+def timePeriod():
+    data_source = DataSource()
+    uuid = "Qwsogvtv82FCd" # Bitcoin
+    if request.method == "POST":
+        print(f"{request.json} ")
+        price_history = data_source.get_data_for_coin(uuid, request.json['body'])
+        return { "status": 200, "apiData": price_history }
+    return {"indices" : ["1", "2", "3", "4"] }
+
 
 @app.route('/')
 @cross_origin()
