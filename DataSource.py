@@ -26,13 +26,13 @@ class DataSource:
                                     params=self.querystring)
         return response.json()
 
-    def get_data_for_coin(self, uuid):
+    def get_data_for_coin(self, uuid, time):
         """
         Gets the JSON for the last 24 hrs of a  coin
         :param uuid: the specific id set by coinranking for a coin
         :return: JSON
         """
-        self.url = f"https://coinranking1.p.rapidapi.com/coin/{uuid}/history"
+        self.url = f"https://coinranking1.p.rapidapi.com/coin/{uuid}/history?timePeriod={time}"
 
         response = requests.request("GET", self.url, headers=self.headers,
                                     params=self.querystring)
@@ -62,11 +62,3 @@ class DataSource:
         response = requests.request("GET", self.url, headers=self.headers,
                                     params=self.querystring)
         return response.json()
-
-
-    def timeline_to_1y(self):
-        """
-        sets the time period for api calls to 1 year for the object
-        """
-        self.querystring["timePeriod"] = "1y"
-        return
