@@ -54,13 +54,11 @@ function Graphs() {
   const graphData = [["Timestamp", "Price"]];
 
   useEffect(() => {
-    // possibly useless now that we use /time request?*****
-    // maybe utilize this to have a default 24 hour time period graph
+    // default 24 hour time period graph for bitcoin
     fetch("/graphs")
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
-        //console.log(data)
+        setSelectedData(data.coin_data);
       });
   }, []);
 
@@ -72,7 +70,6 @@ function Graphs() {
         body: time,
       })
       .then((response) => {
-        console.log(response.data.apiData.data);
         setSelectedData(response.data.apiData.data);
       })
       .catch((error) => console.log(error));
@@ -83,7 +80,7 @@ function Graphs() {
     return new Date(epoch * 1000);
   }
 
-  // make graph using data from backend/API - add it to array
+  // make graph using data from API - add it to array
   const makeGraph = () => {
     for (let x = 0; x < SelectedData.history.length; x++) {
       graphData.push([
@@ -98,6 +95,7 @@ function Graphs() {
       <Form onSubmit={handleSubmit} className="graph-form">
         <label>Choose a time period:</label>
         <Select
+          defaultValue={{ value: "24h", label: "24h" }}
           placeholder="Change Time Period"
           options={timeFrames}
           onChange={(e) => setTime(e.value)}
