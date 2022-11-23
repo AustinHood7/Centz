@@ -65,6 +65,17 @@ def time_period():
         return { "status": 200, "apiData": price_history }
     return {"indices" : ["1", "2", "3", "4"] }
 
+@app.route("/cardselect", methods=["GET", "POST"])
+@cross_origin()
+def card_select():
+    data = DataSource()
+    if request.method == "POST":
+        print(f"{request.json} ")
+        price_history = data.get_data_for_coin(request.json['uuid'], request.json['time'])
+        return { "status": 200, "apiData": price_history }
+    return {"indices" : ["1", "2", "3", "4"] }
+
+
 
 @app.route('/')
 @cross_origin()

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 import "./Sidebar.css";
 import { IconContext } from "react-icons";
 import CircleLoader from "react-spinners/CircleLoader";
+import axios from "axios";
 
-function Sidebar() {
+const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
   const [data, setData] = useState([{}]);
@@ -20,7 +21,17 @@ function Sidebar() {
       });
   }, []);
 
-  const displayGraph = () => {};
+  const displayGraph = (id) => {
+    axios
+      .post("/cardselect", {
+        uuid: id,
+        time: "24h",
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -57,7 +68,7 @@ function Sidebar() {
                             ? "1px solid rgb(0, 217, 100)"
                             : "1px solid rgb(179, 0, 0)",
                       }}
-                      onClick={displayGraph}
+                      onClick={() => displayGraph(coin.uuid)}
                     >
                       <img src={coin.iconUrl} alt="" />
                       <div className="info">
@@ -85,6 +96,6 @@ function Sidebar() {
       </IconContext.Provider>
     </>
   );
-}
+};
 
 export default Sidebar;
