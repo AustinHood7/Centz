@@ -1,9 +1,11 @@
+import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import CircleLoader from "react-spinners/CircleLoader";
 
-function Body() {
+function Body({ cardUuid, onCardClick }) {
   const [data, setData] = useState([{}]);
+  const [coinPath, setCoinPath] = useState();
 
   // grab coin data from backend
   useEffect(() => {
@@ -11,9 +13,12 @@ function Body() {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        //console.log(data)
-      });
+      })
+      .catch((err) => console.log(err));
+    console.log(cardUuid);
   }, []);
+
+  const updateInfo = () => {};
 
   // make description of coin look pretty
   function parseDesc() {

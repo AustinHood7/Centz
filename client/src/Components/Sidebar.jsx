@@ -6,7 +6,7 @@ import { IconContext } from "react-icons";
 import CircleLoader from "react-spinners/CircleLoader";
 import axios from "axios";
 
-const Sidebar = () => {
+const Sidebar = ({ displayGraph }) => {
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
   const [data, setData] = useState([{}]);
@@ -20,18 +20,6 @@ const Sidebar = () => {
         console.log(data);
       });
   }, []);
-
-  const displayGraph = (id) => {
-    axios
-      .post("/cardselect", {
-        uuid: id,
-        time: "24h",
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => console.log(err));
-  };
 
   return (
     <>

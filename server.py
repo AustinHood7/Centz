@@ -40,12 +40,12 @@ def get_graph_data():
 
     return { "status": 200, "coin_data": price_history["data"] }
 
-@app.route("/info")
+@app.route("/info", methods=["GET"])
 @cross_origin()
 def get_coin_data():
     data = DataSource()
-    # Get coin data for coin of uuid
-    coinInfo = data.get_coin_info(uuid)
+
+    coinInfo = data.get_coin_info("razxDUgYGNAdQ")
 
     # if no data is found
     if coinInfo.get('status') == 'fail':

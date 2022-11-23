@@ -8,8 +8,10 @@ import CircleLoader from "react-spinners/CircleLoader";
 export default function Home() {
   const [data, setData] = useState([{}]);
   const [cardData, setCardData] = useState();
+  const [cardUuid, setCardUuid] = useState();
 
   // sidebar uses this... but I thought it used /top-coins? *have Austin look at this
+  
   useEffect(() => {
     fetch("/info")
       .then((res) => res.json())
@@ -19,14 +21,17 @@ export default function Home() {
       });
   }, []);
 
-
+  const displayGraph = (id) => {
+    setCardUuid(id)
+    console.log(id)
+  };
 
   return (
     <div className="Home">
-      <Sidebar data={data}/>
-      <Body />
+      <Sidebar data={data} displayGraph={displayGraph}/>
+      <Body uuid={cardUuid} />
       <div className="homeGraphs">
-        <Graphs />
+        <Graphs uuid={cardUuid}/>
         {typeof data.info === "undefined" ? (
           <p>
             <CircleLoader color="#426cb4" size={100} />
