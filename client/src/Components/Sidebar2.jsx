@@ -17,7 +17,6 @@ function Sidebar2() {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        console.log(data);
       });
   }, []);
 

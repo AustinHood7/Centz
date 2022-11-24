@@ -40,18 +40,33 @@ def get_graph_data():
 
     return { "status": 200, "coin_data": price_history["data"] }
 
+# get data for default info option
 @app.route("/info", methods=["GET"])
 @cross_origin()
 def get_coin_data():
     data = DataSource()
 
-    coinInfo = data.get_coin_info("razxDUgYGNAdQ")
+    coinInfo = data.get_coin_info("Qwsogvtv82FCd")
 
     # if no data is found
     if coinInfo.get('status') == 'fail':
         # tell the user that no results were found
         return { "status": 404, "error": "No results found" }
 
+    return { "status": 200, "info": coinInfo["data"] }
+
+# for post of info
+@app.route("/postInfo", methods=["POST"])
+@cross_origin()
+def post_coin_info():
+    data = DataSource()
+    coinInfo = data.get_coin_info(request.json['uuid'])
+
+    # if no data is found
+    if coinInfo.get('status') == 'fail':
+        # tell the user that no results were found
+        return { "status": 404, "error": "No results found" }
+        
     return { "status": 200, "info": coinInfo["data"] }
 
 
