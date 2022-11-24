@@ -17,7 +17,7 @@ export default function About() {
           <br />
           <div className="aboutDisplay">
             <h3>Christian Apostoli</h3>
-            <a href="https://www.linkedin.com/in/christianapostoli/" target="">
+            <a href="https://www.linkedin.com/in/christianapostoli/" target={"_blank"}>
               <FaLinkedin />
             </a>
           </div>
@@ -34,7 +34,7 @@ export default function About() {
 
           <div className="aboutDisplay">
             <h3>Jake Hanson</h3>
-            <a href="https://www.linkedin.com/in/jakewhans/" target="">
+            <a href="https://www.linkedin.com/in/jakewhans/" target={"_blank"}>
               <FaLinkedin />
             </a>
           </div>
@@ -54,7 +54,7 @@ export default function About() {
 
           <div className="aboutDisplay">
             <h3>Austin Hood</h3>
-            <a href="https://www.linkedin.com/in/austin-hood7/" target="">
+            <a href="https://www.linkedin.com/in/austin-hood7/" target={"_blank"}>
               <FaLinkedin />
             </a>
           </div>
