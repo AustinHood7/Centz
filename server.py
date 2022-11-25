@@ -40,18 +40,33 @@ def get_graph_data():
 
     return { "status": 200, "coin_data": price_history["data"] }
 
-@app.route("/info")
+# get data for default info option
+@app.route("/info", methods=["GET"])
 @cross_origin()
 def get_coin_data():
     data = DataSource()
-    # Get coin data for coin of uuid
-    coinInfo = data.get_coin_info(uuid)
+
+    coinInfo = data.get_coin_info("Qwsogvtv82FCd")
 
     # if no data is found
     if coinInfo.get('status') == 'fail':
         # tell the user that no results were found
         return { "status": 404, "error": "No results found" }
 
+    return { "status": 200, "info": coinInfo["data"] }
+
+# for post of info
+@app.route("/postInfo", methods=["POST"])
+@cross_origin()
+def post_coin_info():
+    data = DataSource()
+    coinInfo = data.get_coin_info(request.json['uuid'])
+
+    # if no data is found
+    if coinInfo.get('status') == 'fail':
+        # tell the user that no results were found
+        return { "status": 404, "error": "No results found" }
+        
     return { "status": 200, "info": coinInfo["data"] }
 
 
@@ -64,6 +79,17 @@ def time_period():
         price_history = data.get_data_for_coin(uuid, request.json['body'])
         return { "status": 200, "apiData": price_history }
     return {"indices" : ["1", "2", "3", "4"] }
+
+@app.route("/cardselect", methods=["GET", "POST"])
+@cross_origin()
+def card_select():
+    data = DataSource()
+    if request.method == "POST":
+        print(f"{request.json} ")
+        price_history = data.get_data_for_coin(request.json['uuid'], request.json['time'])
+        return { "status": 200, "apiData": price_history }
+    return {"indices" : ["1", "2", "3", "4"] }
+
 
 
 @app.route('/')
