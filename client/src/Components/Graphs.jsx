@@ -47,7 +47,8 @@ export const options = {
 
 function Graphs({ cardUuid, graphData }) {
   const [data, setData] = useState([{}]);
-  const [time, setTime] = useState();
+  const [selectTime, setSelectTime] = useState("24h");
+  const [graphTime, setGraphTime] = useState(selectTime);
   const [coinUuid, setCoinUuid] = useState();
   const [SelectedData, setSelectedData] = useState({ history: [] });
 
@@ -56,25 +57,20 @@ function Graphs({ cardUuid, graphData }) {
 
   useEffect(() => {
     // default 24 hour time period graph for bitcoin
-    /*
-    fetch("/graphs")
-      .then((res) => res.json())
-      .then((data) => {
-        setSelectedData(data.coin_data);
-      });
-      */
     console.log(graphData);
     setSelectedData(graphData);
     setCoinUuid(cardUuid);
+    setGraphTime("24h");
   }, [graphData]);
 
   // send timePeriod chosen by user to backend using axios
   const handleSubmit = (event) => {
     event.preventDefault();
+    setGraphTime(selectTime);
     axios
       .post("/cardselect", {
         uuid: cardUuid,
-        time: time,
+        time: selectTime,
       })
       .then((response) => {
         setSelectedData(response.data.apiData.data);
@@ -105,7 +101,7 @@ function Graphs({ cardUuid, graphData }) {
           defaultValue={{ value: "24h", label: "24h" }}
           placeholder="Change Time Period"
           options={timeFrames}
-          onChange={(e) => setTime(e.value)}
+          onChange={(e) => setSelectTime(e.value)}
         />
         <Button>Update Time Period</Button>
       </Form>
@@ -115,6 +111,9 @@ function Graphs({ cardUuid, graphData }) {
         </p>
       ) : (
         <div>
+          <p style={{ color: "white" }}>
+            Showing data for: {String(graphTime)}
+          </p>
           {makeGraph()}
           <Chart
             chartType="AreaChart"

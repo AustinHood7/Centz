@@ -26,7 +26,7 @@ def top_coins():
 
     return { "status": 200, "coin_data": top_coins_data["data"]["coins"] }
 
-@app.route("/graphs")
+@app.route("/graphs", methods=["GET"])
 @cross_origin()
 def get_graph_data():
     data = DataSource()
