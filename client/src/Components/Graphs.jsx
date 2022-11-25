@@ -45,29 +45,36 @@ export const options = {
   legend: { textStyle: { color: "#e0f2fe" } },
 };
 
-function Graphs() {
+function Graphs({ cardUuid, graphData }) {
   const [data, setData] = useState([{}]);
   const [time, setTime] = useState();
-  const [SelectedData, setSelectedData] = useState();
+  const [coinUuid, setCoinUuid] = useState();
+  const [SelectedData, setSelectedData] = useState({ history: [] });
 
   // graph array column names
-  const graphData = [["Timestamp", "Price"]];
+  const graphDataMatrix = [["Timestamp", "Price"]];
 
   useEffect(() => {
     // default 24 hour time period graph for bitcoin
+    /*
     fetch("/graphs")
       .then((res) => res.json())
       .then((data) => {
         setSelectedData(data.coin_data);
       });
-  }, []);
+      */
+    console.log(graphData);
+    setSelectedData(graphData);
+    setCoinUuid(cardUuid);
+  }, [graphData]);
 
   // send timePeriod chosen by user to backend using axios
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("/time", {
-        body: time,
+      .post("/cardselect", {
+        uuid: cardUuid,
+        time: time,
       })
       .then((response) => {
         setSelectedData(response.data.apiData.data);
@@ -83,7 +90,7 @@ function Graphs() {
   // make graph using data from API - add it to array
   const makeGraph = () => {
     for (let x = 0; x < SelectedData.history.length; x++) {
-      graphData.push([
+      graphDataMatrix.push([
         convertEpoch(SelectedData.history[x].timestamp),
         parseFloat(SelectedData.history[x].price),
       ]);
@@ -113,7 +120,7 @@ function Graphs() {
             chartType="AreaChart"
             width="80%"
             height="450px"
-            data={graphData}
+            data={graphDataMatrix}
             options={options}
           />
         </div>

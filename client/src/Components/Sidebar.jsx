@@ -6,7 +6,7 @@ import { IconContext } from "react-icons";
 import CircleLoader from "react-spinners/CircleLoader";
 import axios from "axios";
 
-const Sidebar = ({ displayGraph, onCardClick }) => {
+const Sidebar = ({ onCardClick }) => {
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
   const [data, setData] = useState({});
@@ -57,7 +57,6 @@ const Sidebar = ({ displayGraph, onCardClick }) => {
                             : "1px solid rgb(179, 0, 0)",
                       }}
                       onClick={() => {
-                        displayGraph(coin.uuid);
                         onCardClick(coin.uuid);
                       }}
                     >

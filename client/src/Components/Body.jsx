@@ -5,9 +5,6 @@ import CircleLoader from "react-spinners/CircleLoader";
 
 function Body({ cardInfo }) {
   const [data, setData] = useState({});
-  const [coinPath, setCoinPath] = useState();
-  const [coinInfo, setCoinInfo] = useState();
-  const [cardInfoIsUndefined, setCardInfoIsUndefined] = useState(true);
 
   // update the info if it changes
   useEffect(() => {
