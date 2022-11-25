@@ -5,7 +5,6 @@ import CircleLoader from "react-spinners/CircleLoader";
 import { Button, Form } from "semantic-ui-react";
 import Select from "react-select";
 import axios from "axios";
-import { resolvePath } from "react-router-dom";
 
 // includes all timePeriods available to choose from CoinRanking
 // we may remove some of these to make the options look cleaner in the future
@@ -45,29 +44,31 @@ export const options = {
   legend: { textStyle: { color: "#e0f2fe" } },
 };
 
-function Graphs() {
-  const [data, setData] = useState([{}]);
-  const [time, setTime] = useState();
-  const [SelectedData, setSelectedData] = useState();
+function Graphs({ cardUuid, graphData }) {
+  const [selectTime, setSelectTime] = useState("24h");
+  const [graphTime, setGraphTime] = useState(selectTime);
+  const [coinUuid, setCoinUuid] = useState();
+  const [SelectedData, setSelectedData] = useState({ history: [] });
 
   // graph array column names
-  const graphData = [["Timestamp", "Price"]];
+  const graphDataMatrix = [["Timestamp", "Price"]];
 
   useEffect(() => {
-    // default 24 hour time period graph for bitcoin
-    fetch("/graphs")
-      .then((res) => res.json())
-      .then((data) => {
-        setSelectedData(data.coin_data);
-      });
-  }, []);
+    // update state so we can parse incoming data
+    console.log(graphData);
+    setSelectedData(graphData);
+    setCoinUuid(cardUuid);
+    setGraphTime("24h");
+  }, [graphData]);
 
-  // send timePeriod chosen by user to backend using axios
+  // get data using uuid and time when user submits form
   const handleSubmit = (event) => {
     event.preventDefault();
+    setGraphTime(selectTime);
     axios
-      .post("/time", {
-        body: time,
+      .post("/cardselect", {
+        uuid: cardUuid,
+        time: selectTime,
       })
       .then((response) => {
         setSelectedData(response.data.apiData.data);
@@ -80,10 +81,10 @@ function Graphs() {
     return new Date(epoch * 1000);
   }
 
-  // make graph using data from API - add it to array
+  // build the datatable using api data for chart component
   const makeGraph = () => {
     for (let x = 0; x < SelectedData.history.length; x++) {
-      graphData.push([
+      graphDataMatrix.push([
         convertEpoch(SelectedData.history[x].timestamp),
         parseFloat(SelectedData.history[x].price),
       ]);
@@ -98,7 +99,7 @@ function Graphs() {
           defaultValue={{ value: "24h", label: "24h" }}
           placeholder="Change Time Period"
           options={timeFrames}
-          onChange={(e) => setTime(e.value)}
+          onChange={(e) => setSelectTime(e.value)}
         />
         <Button>Update Time Period</Button>
       </Form>
@@ -108,12 +109,15 @@ function Graphs() {
         </p>
       ) : (
         <div>
+          <p style={{ color: "white" }}>
+            Showing data for: {String(graphTime)}
+          </p>
           {makeGraph()}
           <Chart
             chartType="AreaChart"
             width="80%"
             height="450px"
-            data={graphData}
+            data={graphDataMatrix}
             options={options}
           />
         </div>

@@ -10,27 +10,26 @@ export default function Home() {
   const [data, setData] = useState({});
   const [cardInfo, setCardInfo] = useState({});
   const [cardUuid, setCardUuid] = useState("Qwsogvtv82FCd");
+  const [graphData, setGraphData] = useState({ history: [] });
 
-  // sidebar uses this... but I thought it used /top-coins? *have Austin look at this
-  // have the default info to bitcoin
+  // get the default info and 24h coin data for bitcoin
   useEffect(() => {
     fetch("/info")
       .then((res) => res.json())
       .then((data) => {
-        console.log("This is default info");
-        console.log(data);
         setData(data);
         setCardInfo(data.info);
-        //console.log(cardInfo);
+      });
+
+    fetch("/graphs")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.coin_data);
+        setGraphData(data.coin_data);
       });
   }, []);
 
-  const displayGraph = (id) => {
-    setCardUuid(id);
-    console.log(id);
-  };
-
-  // Once the card is clicked grab the info for the new coin
+  // Once the card is clicked grab the info and the 24h for the new coin
   const onCardClick = (tempid) => {
     axios
       .post("/postInfo", {
@@ -39,20 +38,28 @@ export default function Home() {
       .then((response) => {
         console.log(response.data.info);
         setCardInfo(response.data.info);
+        setCardUuid(String(tempid));
+      })
+      .catch((err) => console.log(err));
+
+    axios
+      .post("/cardselect", {
+        uuid: String(tempid),
+        time: "24h",
+      })
+      .then((response) => {
+        console.log(response.data.apiData.data);
+        setGraphData(response.data.apiData.data);
       })
       .catch((err) => console.log(err));
   };
 
   return (
     <div className="Home">
-      <Sidebar
-        data={data}
-        displayGraph={displayGraph}
-        onCardClick={onCardClick}
-      />
+      <Sidebar data={data} onCardClick={onCardClick} />
       <Body cardInfo={cardInfo} />
       <div className="homeGraphs">
-        <Graphs />
+        <Graphs graphData={graphData} cardUuid={cardUuid} />
         {typeof data.info === "undefined" ? (
           <p>
             <CircleLoader color="#426cb4" size={100} />

@@ -1,20 +1,14 @@
-import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import CircleLoader from "react-spinners/CircleLoader";
 
 function Body({ cardInfo }) {
   const [data, setData] = useState({});
-  const [coinPath, setCoinPath] = useState();
-  const [coinInfo, setCoinInfo] = useState();
-  const [cardInfoIsUndefined, setCardInfoIsUndefined] = useState(true);
 
   // update the info if it changes
   useEffect(() => {
     setData(cardInfo);
   }, [cardInfo]);
-
-  const updateInfo = () => {};
 
   // make description of coin look pretty
   function parseDesc() {
