@@ -12,8 +12,7 @@ export default function Home() {
   const [cardUuid, setCardUuid] = useState("Qwsogvtv82FCd");
   const [graphData, setGraphData] = useState({ history: [] });
 
-  // We need this to keep the sidebar from acting weird
-  // have the default info to bitcoin
+  // get the default info and 24h coin data for bitcoin
   useEffect(() => {
     fetch("/info")
       .then((res) => res.json())
@@ -30,7 +29,7 @@ export default function Home() {
       });
   }, []);
 
-  // Once the card is clicked grab the info for the new coin
+  // Once the card is clicked grab the info and the 24h for the new coin
   const onCardClick = (tempid) => {
     axios
       .post("/postInfo", {
@@ -43,7 +42,6 @@ export default function Home() {
       })
       .catch((err) => console.log(err));
 
-    //save for card click
     axios
       .post("/cardselect", {
         uuid: String(tempid),

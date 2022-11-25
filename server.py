@@ -12,7 +12,7 @@ time = "24h"
 # set global UUID variable (Bitcoin default) 
 uuid = "Qwsogvtv82FCd"
 
-@app.route("/top-coins")
+@app.route("/top-coins", methods=["GET"])
 @cross_origin()
 def top_coins():
     data = DataSource()
@@ -73,26 +73,13 @@ def post_coin_info():
     return { "status": 200, "info": coinInfo["data"] }
 
 
-@app.route("/time", methods=["GET", "POST"])
-@cross_origin()
-def time_period():
-    data = DataSource()
-    if request.method == "POST":
-        #print(f"{request.json} ")
-        price_history = data.get_data_for_coin(uuid, request.json['body'])
-        return { "status": 200, "apiData": price_history }
-    return {"indices" : ["1", "2", "3", "4"] }
-
-
-@app.route("/cardselect", methods=["GET", "POST"])
+@app.route("/cardselect", methods=["POST"])
 @cross_origin()
 def card_select():
     data = DataSource()
-    if request.method == "POST":
-        print(f"{request.json} ")
-        price_history = data.get_data_for_coin(request.json['uuid'], request.json['time'])
-        return { "status": 200, "apiData": price_history }
-    return {"indices" : ["1", "2", "3", "4"] }
+    print(f"{request.json} ")
+    price_history = data.get_data_for_coin(request.json['uuid'], request.json['time'])
+    return { "status": 200, "apiData": price_history }
 
 
 
