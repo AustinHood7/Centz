@@ -5,7 +5,6 @@ import CircleLoader from "react-spinners/CircleLoader";
 import { Button, Form } from "semantic-ui-react";
 import Select from "react-select";
 import axios from "axios";
-import { resolvePath } from "react-router-dom";
 
 // includes all timePeriods available to choose from CoinRanking
 // we may remove some of these to make the options look cleaner in the future
@@ -46,7 +45,6 @@ export const options = {
 };
 
 function Graphs({ cardUuid, graphData }) {
-  const [data, setData] = useState([{}]);
   const [selectTime, setSelectTime] = useState("24h");
   const [graphTime, setGraphTime] = useState(selectTime);
   const [coinUuid, setCoinUuid] = useState();
@@ -56,14 +54,14 @@ function Graphs({ cardUuid, graphData }) {
   const graphDataMatrix = [["Timestamp", "Price"]];
 
   useEffect(() => {
-    // default 24 hour time period graph for bitcoin
+    // update state so we can parse incoming data
     console.log(graphData);
     setSelectedData(graphData);
     setCoinUuid(cardUuid);
     setGraphTime("24h");
   }, [graphData]);
 
-  // send timePeriod chosen by user to backend using axios
+  // get data using uuid and time when user submits form
   const handleSubmit = (event) => {
     event.preventDefault();
     setGraphTime(selectTime);
@@ -83,7 +81,7 @@ function Graphs({ cardUuid, graphData }) {
     return new Date(epoch * 1000);
   }
 
-  // make graph using data from API - add it to array
+  // build the datatable using api data for chart component
   const makeGraph = () => {
     for (let x = 0; x < SelectedData.history.length; x++) {
       graphDataMatrix.push([

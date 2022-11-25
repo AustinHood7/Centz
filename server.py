@@ -26,11 +26,12 @@ def top_coins():
 
     return { "status": 200, "coin_data": top_coins_data["data"]["coins"] }
 
+
 @app.route("/graphs", methods=["GET"])
 @cross_origin()
 def get_graph_data():
     data = DataSource()
-    # Get price history for coin of uuid
+    # Get price history for bitcoin for 24h
     price_history = data.get_data_for_coin(uuid, time)
 
     # if no data is found
@@ -39,6 +40,7 @@ def get_graph_data():
         return { "status": 404, "error": "No results found" }
 
     return { "status": 200, "coin_data": price_history["data"] }
+
 
 # get data for default info option
 @app.route("/info", methods=["GET"])
@@ -55,11 +57,12 @@ def get_coin_data():
 
     return { "status": 200, "info": coinInfo["data"] }
 
-# for post of info
+
 @app.route("/postInfo", methods=["POST"])
 @cross_origin()
 def post_coin_info():
     data = DataSource()
+    # get the info for a coin using passed uuid
     coinInfo = data.get_coin_info(request.json['uuid'])
 
     # if no data is found
@@ -79,6 +82,7 @@ def time_period():
         price_history = data.get_data_for_coin(uuid, request.json['body'])
         return { "status": 200, "apiData": price_history }
     return {"indices" : ["1", "2", "3", "4"] }
+
 
 @app.route("/cardselect", methods=["GET", "POST"])
 @cross_origin()
