@@ -131,6 +131,13 @@ p.coinName {
   text-align: center;
   border-bottom: 1px solid #e0f2fe;
 }
+p.coinNameLong {
+  color: #e0f2fe;
+  font-size: 10pt;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #e0f2fe;
+}
 
 .content {
   background: transparent;
@@ -295,6 +302,10 @@ div.bodyMain {
 
 /* START FOOTER.JSX */
 
+.bottomFooter {
+  font-size: large;
+}
+
 .bottomFooter footer {
   position: relative;
   background-color: #424242;
@@ -321,9 +332,11 @@ footer a:hover {
 .aboutContainer {
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 .aboutTitle > h1 {
+  font-size: 40pt;
   background-color: #5079bf;
   color: #e0f2fe;
   border: 0;
@@ -331,8 +344,13 @@ footer a:hover {
   border-radius: 1.5rem;
 }
 
+.aboutTitle > h2 {
+  font-size: 24pt;
+}
+
 .aboutTitle > h3 {
   margin: 2rem 33vw 5rem 33vw;
+  font-weight: 200;
 }
 
 .aboutTitle {
@@ -382,15 +400,11 @@ footer a:hover {
     padding-top: 1rem;
   }
 
-/* Graphs styling */
-.graphs {
-  margin-left: 23vw;
-}
+/* HOME.JS */
 
 .homeGraphs {
   color:#e0f2fe;
   font-size: larger;
-
 }
 
 .homeData {
@@ -399,14 +413,51 @@ footer a:hover {
 }
 
 
-/* NEEDS TO BE STYLED */
+/* START GRAPHS.JSX */
+.graphs {
+  margin-left: 23vw;
+}
+
 .graph-form {
   color: #333;
-  text-align: right;
-  width: 20%;
+  text-align: center;
+  display: block;
+  float: right;
 }
-.graph-form > label {
+.graph-label {
   color:#e0f2fe;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+  margin-right: 8vw;
+}
+.graph-label-data {
+  color:#e0f2fe;
+  font-weight: 400;
+  display: block;
+  margin-top: 50px;
+  margin-right: 8vw;
+}
+.time {
+  color: #e0f2fe;
+  font-weight: 600;
+}
+.graph-select {
+  color: #000;
+  display: block;
+  width: fit-content;
+  margin-bottom: 10px;
+  margin-left: 65px;
+}
+.graph-button {
+  background-color: #5079bf;
+  color: #e0f2fe;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14pt;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 14px;
+  display: block;
 }
 
 .loadHome {

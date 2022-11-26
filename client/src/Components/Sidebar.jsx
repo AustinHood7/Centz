@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
-import { json, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import { IconContext } from "react-icons";
 import CircleLoader from "react-spinners/CircleLoader";
@@ -28,9 +28,15 @@ const Sidebar = ({ onCardClick }) => {
     return Math.abs(num) > 999,999,999 ? new Intl.NumberFormat('en-US').format(Math.sign(num)*((Math.abs(num)/1000000000).toFixed(3))) + 'B' : Math.sign(num)*Math.abs(num)
   }
 
+  function convertDate() {
+    let today = new Date();
+    let currentDate = today.toLocaleDateString();
+    return currentDate;
+  }
+
   return (
     <>
-      <IconContext.Provider className="nav-test" value={{ color: "#fff" }}>
+      <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
             <MdKeyboardArrowRight onClick={showSidebar} />
@@ -44,6 +50,7 @@ const Sidebar = ({ onCardClick }) => {
               </Link>
             </div>
             <div className="sidebarCoins">
+              <h1 className="title">Top Ranked Coins {convertDate()}</h1>
               {typeof data.coin_data === "undefined" ? (
                 <p className="loader">
                   <CircleLoader color="#426cb4" size={200} />
@@ -68,10 +75,16 @@ const Sidebar = ({ onCardClick }) => {
                       }}
                     >
                       <img src={coin.iconUrl} alt="" />
-                      <div className="info">
-                        <p className="coinName" key={i}>
-                          {coin.name}{" "}
-                        </p>
+                      <div>
+                        {coin.name.length > 18 ? (
+                          <p className="coinNameLong" key={i}>
+                            {coin.name}{" "}
+                          </p>
+                        ) : (
+                          <p className="coinName" key={i}>
+                            {coin.name}{" "}
+                          </p>
+                        )}
                         <div className="rankTchange">
                           <p className="change">Change: {coin.change}%</p>
                           {// United States currency, with 8 decimal places

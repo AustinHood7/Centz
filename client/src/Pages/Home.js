@@ -24,7 +24,7 @@ export default function Home() {
     fetch("/graphs")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.coin_data);
+        //console.log(data.coin_data);
         setGraphData(data.coin_data);
       });
   }, []);
@@ -36,7 +36,7 @@ export default function Home() {
         uuid: String(tempid),
       })
       .then((response) => {
-        console.log(response.data.info);
+        //console.log(response.data.info);
         setCardInfo(response.data.info);
         setCardUuid(String(tempid));
       })
@@ -48,7 +48,7 @@ export default function Home() {
         time: "24h",
       })
       .then((response) => {
-        console.log(response.data.apiData.data);
+        //console.log(response.data.apiData.data);
         setGraphData(response.data.apiData.data);
       })
       .catch((err) => console.log(err));

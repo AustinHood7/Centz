@@ -16,11 +16,11 @@
   .nav-menu {
     background-color: #2d4a7c;
     width: 27.6rem;
-    max-height: 100vh;
+    height: 110vh;
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 0;
+    top: -10%;
     left: -100%;
     transition: 850ms;
     z-index: 5;
@@ -85,4 +85,32 @@
     background: none;
     margin-top: 87vh;
     position: fixed;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 18pt;
+    margin-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    background-color: #5079bf;
+    color: #e0f2fe;
+    border: 0;
+    padding: 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .coinName {
+    color: #e0f2fe;
+    font-size: larger;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 1px solid #e0f2fe;
+  }
+  .coinNameLong {
+    color: #000;
+    font-size: 10pt;
+    font-weight: 60;
+    text-align: center;
+    border-bottom: 1px solid #e0f2fe;
   }

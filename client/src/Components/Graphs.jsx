@@ -55,7 +55,7 @@ function Graphs({ cardUuid, graphData }) {
 
   useEffect(() => {
     // update state so we can parse incoming data
-    console.log(graphData);
+    //console.log(graphData);
     setSelectedData(graphData);
     setCoinUuid(cardUuid);
     setGraphTime("24h");
@@ -81,7 +81,7 @@ function Graphs({ cardUuid, graphData }) {
     return new Date(epoch * 1000);
   }
 
-  // build the datatable using api data for chart component
+  // build the datatable using API data for chart component
   const makeGraph = () => {
     for (let x = 0; x < SelectedData.history.length; x++) {
       graphDataMatrix.push([
@@ -92,26 +92,30 @@ function Graphs({ cardUuid, graphData }) {
   };
 
   return (
-    <div className="graphs">
-      <Form onSubmit={handleSubmit} className="graph-form">
-        <label>Choose a time period:</label>
+    <>
+    <div className="graph-form">
+      <Form onSubmit={handleSubmit}>
+        <label className="graph-label">Choose a time period:</label>
         <Select
+          className="graph-select"
           defaultValue={{ value: "24h", label: "24h" }}
           placeholder="Change Time Period"
           options={timeFrames}
           onChange={(e) => setSelectTime(e.value)}
         />
-        <Button>Update Time Period</Button>
+        <Button className="graph-button">Update Time Period</Button>
       </Form>
+      <p className="graph-label-data">
+        Showing data for: <b className="time">{String(graphTime)}</b>
+      </p>
+    </div>
+    <div className="graphs">
       {typeof SelectedData === "undefined" ? (
         <p>
           <CircleLoader color="#426cb4" size={100} />
         </p>
       ) : (
         <div>
-          <p style={{ color: "white" }}>
-            Showing data for: {String(graphTime)}
-          </p>
           {makeGraph()}
           <Chart
             chartType="AreaChart"
@@ -123,6 +127,7 @@ function Graphs({ cardUuid, graphData }) {
         </div>
       )}
     </div>
+    </>
   );
 }
 
