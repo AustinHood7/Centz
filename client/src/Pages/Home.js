@@ -55,20 +55,24 @@ export default function Home() {
   };
 
   return (
-    <div className="Home">
-      <Sidebar data={data} onCardClick={onCardClick} />
-      <Body cardInfo={cardInfo} />
+    <div className="home">
       <div className="homeGraphs">
-        <Graphs graphData={graphData} cardUuid={cardUuid} />
         {typeof data.info === "undefined" ? (
-          <p>
-            <CircleLoader color="#426cb4" size={100} />
+          <p className="loadHome">
+            <br /><br />
+            <CircleLoader color="#426cb4" size={500} />
           </p>
         ) : (
-          <div className="homeData"></div>
+          <>
+          <Sidebar data={data} onCardClick={onCardClick} />
+          <Body cardInfo={cardInfo} />
+          <Graphs graphData={graphData} cardUuid={cardUuid} />
+          <Footer />
+          </>
         )}
+        
+        
       </div>
-      <Footer />
     </div>
   );
 }

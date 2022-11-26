@@ -12,6 +12,14 @@ export default function About() {
             Coinranking API and shows it in a user-friendly format.
           </h3>
         </div>
+        <div className="aboutTitle">
+          <h2 className="title">How to Use Centz</h2>
+          <h3>
+            To get started, simply click one of the coin cards within the "Top Coins" sidebar
+            on the left side of your screen. This will show you data from the coin you choose.
+            To see data for another coin, choose another coin from the list on the left.
+          </h3>
+        </div>
         <div className="aboutTeam">
           <h2>Meet the Team</h2>
           <br />

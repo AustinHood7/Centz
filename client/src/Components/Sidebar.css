@@ -12,14 +12,14 @@
     background: none;
     margin-top: 75vh;
   }
-  
+
   .nav-menu {
     background-color: #2d4a7c;
     width: 27.6rem;
-    height: 100vh;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -100%;
     transition: 850ms;
