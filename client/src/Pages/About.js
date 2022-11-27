@@ -9,7 +9,19 @@ export default function About() {
           <h1 className="title">About Centz</h1>
           <h3>
             Centz is a web application that takes cryptocurrency data from the
-            Coinranking API and shows it in a user-friendly format.
+            Coinranking API and shows it in a visual, user-friendly format.
+          </h3>
+        </div>
+        <div className="aboutTitle">
+          <h2 className="title">How to Use Centz</h2>
+          <h3>
+            To get started, simply click one of the coin cards within the "Top Ranked Coins" sidebar
+            on the left side of your screen. This will show you data from the coin you choose.
+            To see data for another coin, choose another coin from the list on the left.
+            <br /><br />
+            To change the time period of the graph, select a value from the dropdown on the right.
+            After you have chosen, please click the "Update Time Period" button to then confirm
+            your changes. You can see the current time period in the label below the button.
           </h3>
         </div>
         <div className="aboutTeam">

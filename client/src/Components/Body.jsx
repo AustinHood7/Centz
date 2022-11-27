@@ -1,29 +1,29 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import CircleLoader from "react-spinners/CircleLoader";
 
 function Body({ cardInfo }) {
   const [data, setData] = useState({});
 
-  // update the info if it changes
+  // update the info if cardInfo changes
   useEffect(() => {
     setData(cardInfo);
   }, [cardInfo]);
 
   // make description of coin look pretty
+  // still contains ASCII strings... look into simply using HTML plaintext that is given,
+  // but cutting it off after say, 3 sentences?
   function parseDesc() {
     let desc = data.coin.description;
     let begin = desc.replace("<p>", "");
     let end = begin.split("</p>", "1");
+    //let cleanText = desc.replace(/<\/?[^>]+(>|$)/g, "");
     return end;
   }
 
   return (
     <div>
       {typeof data.coin === "undefined" ? (
-        <p>
-          <CircleLoader color="#426cb4" size={100} />
-        </p>
+        <p></p>
       ) : (
         <div className="bodyMain">
           <br />

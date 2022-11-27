@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
-import { json, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import { IconContext } from "react-icons";
 import CircleLoader from "react-spinners/CircleLoader";
-import axios from "axios";
 
 const Sidebar = ({ onCardClick }) => {
   const [sidebar, setSidebar] = useState(true);
@@ -20,6 +19,20 @@ const Sidebar = ({ onCardClick }) => {
         console.log(data);
       });
   }, []);
+
+  function capFormatter(num) {
+    // convert into millions, since it gives more significant digits than converting to billions
+    //return Math.abs(num) > 999,999 ? new Intl.NumberFormat('en-US').format(Math.sign(num)*((Math.abs(num)/1000000).toFixed(1))) + 'M' : Math.sign(num)*Math.abs(num)
+    
+    // convert into billions w/ 3 decimal places
+    return Math.abs(num) > 999,999,999 ? new Intl.NumberFormat('en-US').format(Math.sign(num)*((Math.abs(num)/1000000000).toFixed(3))) + 'B' : Math.sign(num)*Math.abs(num)
+  }
+
+  function convertDate() {
+    let today = new Date();
+    let currentDate = today.toLocaleDateString();
+    return currentDate;
+  }
 
   return (
     <>
@@ -37,6 +50,7 @@ const Sidebar = ({ onCardClick }) => {
               </Link>
             </div>
             <div className="sidebarCoins">
+              <h1 className="title">Top Ranked Coins {convertDate()}</h1>
               {typeof data.coin_data === "undefined" ? (
                 <p className="loader">
                   <CircleLoader color="#426cb4" size={200} />
@@ -61,17 +75,25 @@ const Sidebar = ({ onCardClick }) => {
                       }}
                     >
                       <img src={coin.iconUrl} alt="" />
-                      <div className="info">
-                        <p className="coinName" key={i}>
-                          {coin.name}{" "}
-                        </p>
+                      <div>
+                        {coin.name.length > 18 ? (
+                          <p className="coinNameLong" key={i}>
+                            {coin.name}{" "}
+                          </p>
+                        ) : (
+                          <p className="coinName" key={i}>
+                            {coin.name}{" "}
+                          </p>
+                        )}
                         <div className="rankTchange">
-                          <p className="change">Change: {coin.change}</p>
-                          <p> Price: ${coin.price} </p>
-                          <p>Market Cap: {coin.marketCap}</p>
+                          <p className="change">Change: {coin.change}%</p>
+                          {// United States currency, with 8 decimal places
+                          }
+                          <p>Price: {new Intl.NumberFormat('en-US', { minimumFractionDigits: 8, style: 'currency', currency: 'USD' }).format(coin.price)}</p>
+                          <p>Market Cap: ${capFormatter(coin.marketCap)}</p>
                         </div>
                       </div>
-                      {/*}
+                      {/* future implementation: add mini graphs to each card}
                         <div className='miniGraphs'>   
                         <Chart chartType="LineChart" width="100px" height="50px" data={graphData} options={options}/>
                         </div>

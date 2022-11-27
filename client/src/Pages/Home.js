@@ -24,7 +24,7 @@ export default function Home() {
     fetch("/graphs")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.coin_data);
+        //console.log(data.coin_data);
         setGraphData(data.coin_data);
       });
   }, []);
@@ -36,7 +36,7 @@ export default function Home() {
         uuid: String(tempid),
       })
       .then((response) => {
-        console.log(response.data.info);
+        //console.log(response.data.info);
         setCardInfo(response.data.info);
         setCardUuid(String(tempid));
       })
@@ -48,27 +48,31 @@ export default function Home() {
         time: "24h",
       })
       .then((response) => {
-        console.log(response.data.apiData.data);
+        //console.log(response.data.apiData.data);
         setGraphData(response.data.apiData.data);
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div className="Home">
-      <Sidebar data={data} onCardClick={onCardClick} />
-      <Body cardInfo={cardInfo} />
+    <div className="home">
       <div className="homeGraphs">
-        <Graphs graphData={graphData} cardUuid={cardUuid} />
         {typeof data.info === "undefined" ? (
-          <p>
-            <CircleLoader color="#426cb4" size={100} />
+          <p className="loadHome">
+            <br /><br />
+            <CircleLoader color="#426cb4" size={500} />
           </p>
         ) : (
-          <div className="homeData"></div>
+          <>
+          <Sidebar data={data} onCardClick={onCardClick} />
+          <Body cardInfo={cardInfo} />
+          <Graphs graphData={graphData} cardUuid={cardUuid} />
+          <Footer />
+          </>
         )}
+        
+        
       </div>
-      <Footer />
     </div>
   );
 }
