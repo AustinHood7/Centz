@@ -1,6 +1,6 @@
 # **Centz**
 
-A react-flask based web application to provide a platform for providing real-time data on cryptocurrency. This web app focuses on helping find the top current crypto and visualize trends using the Google Charts API.
+A react-flask based web application to provide a platform for providing real-time data on cryptocurrency (based on Coinranking API data). This web app focuses on helping find the top current crypto and visualize trends using the Google Charts API.
 
 # [Deployment (Heroku)](https://centz.herokuapp.com)
 
@@ -41,9 +41,9 @@ A react-flask based web application to provide a platform for providing real-tim
 - Oct 21: Project Prototype/Release 1 (DONE)
 - Nov 6: Project Check-in 2 (DONE)
 - Nov 7: Deliverable Basic functional product (DONE)
-- Nov 20: Final Check-in - Presentation Draft (Done)
-- Nov 29: Group Presentation / Demo
-- Dec 16: Project / Report Due (ideally completed far before this date)
+- Nov 20: Final Check-in - Presentation Draft (DONE)
+- Nov 29: Group Presentation / Demo ()
+- Dec 9: Project / Report Due ()
 
 &nbsp;
 
@@ -53,7 +53,7 @@ Here is the presentation for our project [Centz Presentation](https://docs.googl
 &nbsp;
 
 ### **Programming Standards**
-We are following [Google Style Guides](https://google.github.io/styleguide/) as close as possible
+We are following [Google Style Guides](https://google.github.io/styleguide/) as closely as possible
 
 ### **Original Project Proposal**
 
@@ -62,6 +62,14 @@ We will be building a web application that will take cryptocurrency data and use
 The data that is gathered from the Coinranking API. The user will have the option of saving specific coin data to a database. We have an idea of what to save to the database (coin UUID, name, price, datetime etc.) but need to get more into development before deciding on exactly what data to save. We would like to implement a database element to the application to give users the option to recall data that they saw previously. We also hope to implement a feature that sends notifications (via email or text) when a coin reaches a certain price or range of prices.
 
 The application has a ReactJS (JavaScript) front-end and a Flask (Python) back-end. The data will be retrieved through the Coinranking API which returns data in a JSON format. We are currently hosting the web application through Heroku, but due to their recent act of removing the free tier, we may be switching deployment services. Other options include AWS or Firebase, but we are still considering others.
+
+### **Updated Project Summary (11/26/2022)**
+
+We will be building a web application that will take cryptocurrency data and use this to build analytics including graphs and charts based on the user's choice of coins and timelines. Essentially, the user will be able to utilize the analytics of these investments to help them make well-informed decisions.
+
+The data is gathered from the Coinranking API. Future implementations include allowing the user to have the option of saving specific coin data to a database. We have an idea of what to save to the database (coin UUID, name, price, datetime/epoch time etc.) but need to get more into development before deciding on exactly what data to save. We would like to implement a database element to the application to give users the option to recall data that they saw previously. In the future, we also hope to implement a feature that sends notifications (via email or text) when a coin reaches a certain price or range of prices.
+
+The application has a ReactJS (JavaScript) front-end (user interface) and a Flask (Python) back-end (server). The data will be retrieved through the Coinranking API which returns data in a JSON format. We are currently hosting the web application through Heroku, but due to their recent act of removing the free tier, we may be switching deployment services. Other options include AWS or Firebase, but we are still considering others. As of 11/28/2022, Heroku no longer has a free tier. However, considering our great experience with Heroku and ease of deployment, we will be utilizing Heroku's Basic (previously Hobby) tier in order to continue showing off Centz.
 
 &nbsp;
 
@@ -118,6 +126,7 @@ See [Issues page](https://github.com/AustinHood7/Centz/issues) or [Kanban board]
 - File structure - see repo for simple integration as opposed to old style with "client" (frontend) and "flask" (backend) folders
 - Git/source control - see [Git blog post](#blogs) (from Austin)
 - Deployment - front end runs on localhost:3000 by default; back end runs on localhost:5000 by default; include "proxy: localhost:5000" in React's package.json, so that any data being transferred on :5000
+- POST requests - after much trial and error, settled on using Axios React library, which made POST requests super easy. For more information, see Home.js, Graphs.jsx and Sidebar.jsx; POST requests send user data from front-end to back-end, including time period of graph and UUID of coin that is selected from the sidebar.
 
 &nbsp;
 
@@ -165,8 +174,9 @@ See [Issues page](https://github.com/AustinHood7/Centz/issues) or [Kanban board]
 
 ## Acknowledgements
 
-- [What to do with venv when putting flask on Git](https://medium.com/wealthy-bytes/the-easiest-way-to-use-a-python-virtual-environment-with-git-401e07c39cde)
-- [Hosting Flask React App on Heroku](https://www.youtube.com/watch?v=h96KP3JMX7Q&t=1258s)
+- [What to do with venv when putting Flask on Git](https://medium.com/wealthy-bytes/the-easiest-way-to-use-a-python-virtual-environment-with-git-401e07c39cde)
+- [Hosting Flask React App on Heroku](https://www.youtube.com/watch?v=h96KP3JMX7Q)
+- [Coinranking API Documentaion](https://developers.coinranking.com/api/documentation/coins)
 
 <!-- Markdown Links and Images -->
 
