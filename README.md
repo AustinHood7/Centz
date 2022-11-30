@@ -29,35 +29,25 @@ A react-flask based web application to provide a platform for providing real-tim
 Navigate to [Centz](https://centz.herokuapp.com) or [Backup](https://coin-graphs.herokuapp.com)
 
 ### First Page
-Default cryptocurrency coin selected is Bitcoin, and the default time period is 24 hours.
-
+Default cryptocurrency coin selected is Bitcoin, and the default time period is 24 hours. \
 You may hover over the graph and line in order to see the specific price and time.
 
 ### Changing the time period
-On the right side of the screen, click on the "24h" dropdown selection, and choose your desired value.
-
-After clicking your value, you must click the "Update Time Period" button in order for the graph to change.
-
-This will be evident from the graph animation as well as the "Showing data for:" label beneath the button.
-
+On the right side of the screen, click on the "24h" dropdown selection, and choose your desired value. \
+After clicking your value, you must click the "Update Time Period" button in order for the graph to change. \
+This will be evident from the graph animation as well as the "Showing data for:" label beneath the button. \
 This value may be changed an indefinite amount of times.
 
 ### Changing the selected cryptocurrency/coin
-On the left side of your screen, you may click any of the coins. This will change the data shown on the rest of the screen, replacing each section with data accurate to your newly selected coin.
-
-After you select a new coin, the time period will default back to 24 hours. This may be changed (see above), but the time period will not stay in effect with each newly chosen coin.
-
+On the left side of your screen, you may click any of the coins. This will change the data shown on the rest of the screen, replacing each section with data accurate to your newly selected coin. \
+After you select a new coin, the time period will default back to 24 hours. This may be changed (see above), but the time period will not stay in effect with each newly chosen coin. \
 You may choose as many different coins as you would like to within your time on the website.
 
 ### Navigating to another page
-On the top of your screen will be three buttons:
-
-[Search icon] - future implementation; will search through various coins, but clicking the coin yields no results.
-
-[Centz icon] - clicking this will direct you to the main page where you may select coins and see visual graph data.
-
+On the top of your screen will be three buttons: \
+[Search icon] - future implementation; will search through various coins, but clicking the coin yields no results. \
+[Centz icon] - clicking this will direct you to the main page where you may select coins and see visual graph data. \
 [About page] - clicking this will direct you to the about page where you can see a short section on what Centz is and how to use it. It also contains information about the team that created Centz, as well as their contact information.
-
 
 &nbsp;
 
@@ -81,8 +71,8 @@ On the top of your screen will be three buttons:
 - Nov 6: Project Check-in 2 (DONE)
 - Nov 7: Deliverable Basic functional product (DONE)
 - Nov 20: Final Check-in - Presentation Draft (DONE)
-- Nov 29: Group Presentation / Demo ()
-- Dec 9: Project / Report Due ()
+- Nov 29: Group Presentation / Demo (DONE)
+- Dec 9: Project / Report Due (DONE)
 
 &nbsp;
 
