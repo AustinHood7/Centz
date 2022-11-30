@@ -23,7 +23,7 @@ A react-flask based web application to provide a platform for providing real-tim
 
 &nbsp;
 
-## Project Basics
+## How to Use
 
 ### Start
 Navigate to [Centz](centz.herokuapp.com) or [Backup](coin-graphs.herokuapp.com)
