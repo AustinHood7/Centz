@@ -26,7 +26,7 @@ A react-flask based web application to provide a platform for providing real-tim
 ## How to Use
 
 ### Start
-Navigate to [Centz](centz.herokuapp.com) or [Backup](coin-graphs.herokuapp.com)
+Navigate to [Centz](https://centz.herokuapp.com) or [Backup](https://coin-graphs.herokuapp.com)
 
 ### First Page
 Default cryptocurrency coin selected is Bitcoin, and the default time period is 24 hours.
