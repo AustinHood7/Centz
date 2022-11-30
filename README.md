@@ -11,14 +11,43 @@ A react-flask based web application to provide a platform for providing real-tim
 
 ## **Table of Contents**
 
-1. [Project Basics](#project-basics)
-2. [Design Diagrams](#design-diagrams)
-3. [Resources](#resources)
-4. [Things To Do](#things-to-do)
-5. [Blog Posts](#blog-posts)
-6. [Problems](#problems)
-7. [Pre-development Planning](#pre-development-planning)
-8. [Acknowledgments](#acknowledgments)
+1. [How to Use](#how-to-use)
+2. [Project Basics](#project-basics)
+3. [Design Diagrams](#design-diagrams)
+4. [Resources](#resources)
+5. [Things To Do](#things-to-do)
+6. [Blog Posts](#blog-posts)
+7. [Problems](#problems)
+8. [Pre-development Planning](#pre-development-planning)
+9. [Acknowledgments](#acknowledgments)
+
+&nbsp;
+
+## Project Basics
+
+### Start
+Navigate to [Centz](centz.herokuapp.com) or [Backup](coin-graphs.herokuapp.com)
+
+### First Page
+Default cryptocurrency coin selected is Bitcoin, and the default time period is 24 hours.
+You may hover over the graph and line in order to see the specific price and time.
+
+### Changing the time period
+On the right side of the screen, click on the "24h" dropdown selection, and choose your desired value.
+After clicking your value, you must click the "Update Time Period" button in order for the graph to change.
+This will be evident from the graph animation as well as the "Showing data for:" label beneath the button.
+This value may be changed an indefinite amount of times.
+
+### Changing the selected cryptocurrency/coin
+On the left side of your screen, you may click any of the coins. This will change the data shown on the rest of the screen, replacing each section with data accurate to your newly selected coin.
+After you select a new coin, the time period will default back to 24 hours. This may be changed (see above), but the time period will not stay in effect with each newly chosen coin.
+You may choose as many different coins as you would like to within your time on the website.
+
+### Navigating to another page
+On the top of your screen will be three buttons:
+[Search icon] - future implementation; will search through various coins, but clicking the coin yields no results.
+[Centz icon] - clicking this will direct you to the main page where you may select coins and see visual graph data.
+[About page] - clicking this will direct you to the about page where you can see a short section on what Centz is and how to use it. It also contains information about the team that created Centz, as well as their contact information.
 
 &nbsp;
 
