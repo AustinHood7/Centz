@@ -3,6 +3,7 @@
 A react-flask based web application to provide a platform for providing real-time data on cryptocurrency (based on Coinranking API data). This web app focuses on helping find the top current crypto and visualize trends using the Google Charts API.
 
 # [Deployment (Heroku)](https://coin-graphs.herokuapp.com/)
+Access will end Jan 1st, 2023.
 
 ### Built With
 
